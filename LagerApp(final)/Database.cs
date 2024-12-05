@@ -26,7 +26,7 @@ namespace LagerApp_final_
             connection.Open();
 
             var command = new SqlCommand("SELECT MedarbejderID, Password FROM Medarbejder;", connection);
-
+            //command.Parameters.AddWithValue("@MedarbejderID", username);
 
             using var reader = command.ExecuteReader();
             if (reader.HasRows) {

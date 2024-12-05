@@ -17,14 +17,14 @@ namespace LagerApp_final_
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            
-            string username  = textBoxUsername.Text;
+
+            string username = textBoxUsername.Text;
             string password = textBoxPassword.Text;
             var (MedarbejderID, Password) = _database.ReadWorker();
 
-            if (MedarbejderID != null &&  Password != null )
+            if (MedarbejderID != null && Password != null)
             {
-                if(password == Password && username == MedarbejderID)
+                if (password == Password && username == MedarbejderID)
                 {
                     mainMenu = new MainMenu(); // creating new form
                     mainMenu.Show(); //shows Main menu form after pressing login
@@ -36,9 +36,13 @@ namespace LagerApp_final_
                 }
             }
 
+        }
 
-
-
+        private void buttonSkipLogin_Click(object sender, EventArgs e)
+        {
+            mainMenu = new MainMenu(); // creating new form
+            mainMenu.Show(); //shows Main menu form after pressing login
+            this.Hide(); // hides this form
         }
     }
 }

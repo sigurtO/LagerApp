@@ -33,6 +33,7 @@
             label1 = new Label();
             label2 = new Label();
             buttonLogin = new Button();
+            buttonSkipLogin = new Button();
             SuspendLayout();
             // 
             // textBoxUsername
@@ -77,11 +78,22 @@
             buttonLogin.UseVisualStyleBackColor = true;
             buttonLogin.Click += buttonLogin_Click;
             // 
+            // buttonSkipLogin
+            // 
+            buttonSkipLogin.Location = new Point(46, 131);
+            buttonSkipLogin.Name = "buttonSkipLogin";
+            buttonSkipLogin.Size = new Size(94, 29);
+            buttonSkipLogin.TabIndex = 5;
+            buttonSkipLogin.Text = "Skip Login";
+            buttonSkipLogin.UseVisualStyleBackColor = true;
+            buttonSkipLogin.Click += buttonSkipLogin_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(buttonSkipLogin);
             Controls.Add(buttonLogin);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -100,5 +112,6 @@
         private Label label1;
         private Label label2;
         private Button buttonLogin;
+        private Button buttonSkipLogin;
     }
 }
