@@ -34,10 +34,10 @@
             buttonAdd = new Button();
             textBoxNavn = new TextBox();
             label2 = new Label();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
+            textBoxBeskriv = new TextBox();
+            textBoxMinLager = new TextBox();
+            textBoxDato = new TextBox();
+            textBoxMaksLager = new TextBox();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
@@ -77,6 +77,7 @@
             buttonAdd.TabIndex = 3;
             buttonAdd.Text = "Add";
             buttonAdd.UseVisualStyleBackColor = true;
+            buttonAdd.Click += buttonAdd_Click;
             // 
             // textBoxNavn
             // 
@@ -94,33 +95,33 @@
             label2.TabIndex = 5;
             label2.Text = "Navn";
             // 
-            // textBox2
+            // textBoxBeskriv
             // 
-            textBox2.Location = new Point(133, 34);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 6;
+            textBoxBeskriv.Location = new Point(133, 34);
+            textBoxBeskriv.Name = "textBoxBeskriv";
+            textBoxBeskriv.Size = new Size(125, 27);
+            textBoxBeskriv.TabIndex = 6;
             // 
-            // textBox3
+            // textBoxMinLager
             // 
-            textBox3.Location = new Point(133, 92);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(125, 27);
-            textBox3.TabIndex = 7;
+            textBoxMinLager.Location = new Point(133, 92);
+            textBoxMinLager.Name = "textBoxMinLager";
+            textBoxMinLager.Size = new Size(125, 27);
+            textBoxMinLager.TabIndex = 7;
             // 
-            // textBox4
+            // textBoxDato
             // 
-            textBox4.Location = new Point(44, 92);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(51, 27);
-            textBox4.TabIndex = 8;
+            textBoxDato.Location = new Point(44, 92);
+            textBoxDato.Name = "textBoxDato";
+            textBoxDato.Size = new Size(51, 27);
+            textBoxDato.TabIndex = 8;
             // 
-            // textBox5
+            // textBoxMaksLager
             // 
-            textBox5.Location = new Point(133, 142);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(125, 27);
-            textBox5.TabIndex = 9;
+            textBoxMaksLager.Location = new Point(133, 142);
+            textBoxMaksLager.Name = "textBoxMaksLager";
+            textBoxMaksLager.Size = new Size(125, 27);
+            textBoxMaksLager.TabIndex = 9;
             // 
             // label3
             // 
@@ -167,10 +168,10 @@
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
+            Controls.Add(textBoxMaksLager);
+            Controls.Add(textBoxDato);
+            Controls.Add(textBoxMinLager);
+            Controls.Add(textBoxBeskriv);
             Controls.Add(label2);
             Controls.Add(textBoxNavn);
             Controls.Add(buttonAdd);
@@ -191,10 +192,10 @@
         private Button buttonAdd;
         private TextBox textBoxNavn;
         private Label label2;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
+        private TextBox textBoxBeskriv;
+        private TextBox textBoxMinLager;
+        private TextBox textBoxDato;
+        private TextBox textBoxMaksLager;
         private Label label3;
         private Label label4;
         private Label label5;
