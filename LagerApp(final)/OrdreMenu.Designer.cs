@@ -45,9 +45,9 @@
             label1.AutoSize = true;
             label1.Location = new Point(314, 167);
             label1.Name = "label1";
-            label1.Size = new Size(81, 20);
+            label1.Size = new Size(85, 20);
             label1.TabIndex = 1;
-            label1.Text = "Søg i lager";
+            label1.Text = "Søg i Ordre";
             // 
             // buttonLagerSearch
             // 
