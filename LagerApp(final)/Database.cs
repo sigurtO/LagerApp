@@ -41,24 +41,38 @@ namespace LagerApp_final_
 
 
         //read
-        public (string MedarbejderID, string Password) ReadWorker()
+       public MedarbejderLogin ReadWorker(string username, string password)
         {
+            string MedarbejderID = null;
+            string Password = null;
+
+
             using var connection = new SqlConnection(_connectionString);
             connection.Open();
 
-            var command = new SqlCommand("SELECT MedarbejderID, Password FROM Medarbejder;", connection);
-            //command.Parameters.AddWithValue("@MedarbejderID", username);
+            using var command = new SqlCommand("SELECT MedarbejderID, Password FROM Medarbejder WHERE MedarbejderID = @username AND Password = @password", connection);
 
-            using var reader = command.ExecuteReader();
-            if (reader.HasRows)
-            {
-                while (reader.Read())
+            //Dett gør man kun så der ikke kan laves sql injections
+            command.Parameters.AddWithValue("@username", username);
+            command.Parameters.AddWithValue("@password", password);
+
+            using (var reader = command.ExecuteReader())
                 {
-                    return (reader["MedarbejderID"].ToString(), reader["Password"].ToString());
-
+                    if (reader.Read())
+                    {
+                        MedarbejderID = reader["MedarbejderID"].ToString();
+                        Password = reader["Password"].ToString();
+                    }
                 }
+
+
+            if (MedarbejderID == null || Password == null)
+            {
+                return null;
             }
-            return (null, null);
+
+            return new MedarbejderLogin(MedarbejderID, Password);
+
         }
 
     }

@@ -14,13 +14,9 @@ namespace LagerApp_final_
 {
     public partial class LagerMenu : Form
     {
-        private Database _database;
         public LagerMenu()
         {
             InitializeComponent();
-
-            string connectionString = "Server=localhost;Database=ProjectLager;Trusted_Connection=True;TrustServerCertificate=True";
-            _database = new Database(connectionString);
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -42,7 +38,7 @@ namespace LagerApp_final_
                 //Pris = pris
             };
 
-            _database.AddProdukt(Nyprodukt);
+            Program.Database.AddProdukt(Nyprodukt);
 
             MessageBox.Show("Produkt was added");
 

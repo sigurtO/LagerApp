@@ -5,14 +5,9 @@ namespace LagerApp_final_
     public partial class Form1 : Form
     {
         private MainMenu mainMenu; // declare form
-        private Database _database;
         public Form1()
         {
-
             InitializeComponent();
-            string connectionString = "Server=localhost;Database=ProjectLager;Trusted_Connection=True;TrustServerCertificate=True";
-            _database = new Database(connectionString);
-
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
@@ -20,21 +15,18 @@ namespace LagerApp_final_
 
             string username = textBoxUsername.Text;
             string password = textBoxPassword.Text;
-            var (MedarbejderID, Password) = _database.ReadWorker();
-
-            if (MedarbejderID != null && Password != null)
+            MedarbejderLogin login = Program.Database.ReadWorker(username, password);
+            if (login != null)
             {
-                if (password == Password && username == MedarbejderID)
-                {
-                    mainMenu = new MainMenu(); // creating new form
-                    mainMenu.Show(); //shows Main menu form after pressing login
-                    this.Hide(); // hides this form
-                }
-                else
-                {
-                    MessageBox.Show("Forkert Login");
-                }
+                mainMenu = new MainMenu();
+                mainMenu.Show();
+                this.Hide();
             }
+            else
+            {
+                MessageBox.Show("Forkert Login");
+            }
+
 
         }
 
