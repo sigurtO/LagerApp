@@ -26,6 +26,7 @@ namespace LagerApp_final_
             string dato = textBoxDato.Text;
             int minimumsbeholdning = int.Parse(textBoxMinLager.Text);
             int maksimumsbeholdning = int.Parse(textBoxMaksLager.Text);
+            int pris = int.Parse(textBoxPris.Text);
 
 
             Produkter Nyprodukt = new Produkter
@@ -34,8 +35,8 @@ namespace LagerApp_final_
                 Beskrivelse = beskrivelse,
                 Dato = dato,
                 Minimumsbeholdning = minimumsbeholdning,
-                Maksimumsbeholdning = maksimumsbeholdning
-                //Pris = pris
+                Maksimumsbeholdning = maksimumsbeholdning,
+                Pris = pris
             };
 
             Program.Database.AddProdukt(Nyprodukt);

@@ -25,8 +25,8 @@ namespace LagerApp_final_
             connection.Open();
 
 
-            using var command = new SqlCommand("INSERT INTO Produkter ( Navn, Beskrivelse, Dato, Minimumsbeholdning, Maksimumsbeholdning) " +
-              "VALUES (@Navn, @Beskrivelse, @Dato, @Minimumsbeholdning, @Maksimumsbeholdning)", connection);
+            using var command = new SqlCommand("INSERT INTO Produkter ( Navn, Beskrivelse, Dato, Minimumsbeholdning, Maksimumsbeholdning, Pris) " +
+              "VALUES (@Navn, @Beskrivelse, @Dato, @Minimumsbeholdning, @Maksimumsbeholdning, Pris)", connection);
 
 
             //command.Parameters.AddWithValue("@SalgsID", produkt.SalgsID);
@@ -35,6 +35,7 @@ namespace LagerApp_final_
             command.Parameters.AddWithValue("@Dato", produkt.Dato);
             command.Parameters.AddWithValue("@Minimumsbeholdning", produkt.Minimumsbeholdning);
             command.Parameters.AddWithValue("@Maksimumsbeholdning", produkt.Maksimumsbeholdning);
+            command.Parameters.AddWithValue("@Prist", produkt.Pris);
 
             command.ExecuteNonQuery();
         }

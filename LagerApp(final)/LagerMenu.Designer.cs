@@ -42,6 +42,8 @@
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
+            textBoxPris = new TextBox();
+            label7 = new Label();
             SuspendLayout();
             // 
             // textBox1
@@ -159,11 +161,29 @@
             label6.TabIndex = 13;
             label6.Text = "MaksLager";
             // 
+            // textBoxPris
+            // 
+            textBoxPris.Location = new Point(33, 142);
+            textBoxPris.Name = "textBoxPris";
+            textBoxPris.Size = new Size(62, 27);
+            textBoxPris.TabIndex = 14;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(33, 122);
+            label7.Name = "label7";
+            label7.Size = new Size(32, 20);
+            label7.TabIndex = 15;
+            label7.Text = "Pris";
+            // 
             // LagerMenu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label7);
+            Controls.Add(textBoxPris);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -200,5 +220,7 @@
         private Label label4;
         private Label label5;
         private Label label6;
+        private TextBox textBoxPris;
+        private Label label7;
     }
 }
