@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using static LagerApp_final_.Ordre;
 
 namespace LagerApp_final_
 {
@@ -42,7 +43,7 @@ namespace LagerApp_final_
 
 
         //read
-       public MedarbejderLogin ReadWorker(string username, string password)
+        public MedarbejderLogin ReadWorker(string username, string password)
         {
             string MedarbejderID = null;
             string Password = null;
@@ -58,13 +59,13 @@ namespace LagerApp_final_
             command.Parameters.AddWithValue("@password", password);
 
             using (var reader = command.ExecuteReader())
+            {
+                if (reader.Read())
                 {
-                    if (reader.Read())
-                    {
-                        MedarbejderID = reader["MedarbejderID"].ToString();
-                        Password = reader["Password"].ToString();
-                    }
+                    MedarbejderID = reader["MedarbejderID"].ToString();
+                    Password = reader["Password"].ToString();
                 }
+            }
 
 
             if (MedarbejderID == null || Password == null)
@@ -76,5 +77,43 @@ namespace LagerApp_final_
 
         }
 
+
+        public List<OrdreLager> ReadOrdre()
+        {
+            var ordreliste = new List<OrdreLager>();
+
+            using var connection = new SqlConnection(_connectionString);
+            connection.Open();
+
+            string query = "SELECT * FROM Ordre";
+
+            using var command = new SqlCommand(query, connection);
+
+            using var reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                var ordre = new OrdreLager
+                {
+                    OrdreId = reader.GetInt32(0),        // OrdreID
+                    Info = reader.GetString(1),         // Info
+                    Dato = reader.GetString(2), // Dato (konverteres til streng)
+                    KundeID = reader.GetInt32(3),       // KundeID
+                    Leverandoer = reader.GetString(4)    // Leverandør
+                };
+
+                ordreliste.Add(ordre);
+            }
+
+            return ordreliste;
+        }
+
+
+
+
     }
 }
+
+
+
+
+

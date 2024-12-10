@@ -45,5 +45,14 @@ namespace LagerApp_final_
 
         }
 
+        private void buttonProduktSearch_Click(object sender, EventArgs e)
+        {
+
+
+
+
+
+
+        }
     }
 }

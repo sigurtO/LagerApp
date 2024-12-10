@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace LagerApp_final_
 {
@@ -15,6 +16,15 @@ namespace LagerApp_final_
         public OrdreMenu()
         {
             InitializeComponent();
+            buttonOrdreSearch.Click += buttonOrdreSearch_Click;
+
         }
+
+        public void buttonOrdreSearch_Click(object sender, EventArgs e)
+        {
+            var ordreListe = Program.Database.ReadOrdre();
+            dataGridViewOrdre.DataSource = ordreListe;
+        }
+
     }
 }
