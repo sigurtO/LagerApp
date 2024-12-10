@@ -32,18 +32,34 @@
 			buttonOrdreSearch = new Button();
 			label1 = new Label();
 			buttonAdd = new Button();
-			textBoxNavn = new TextBox();
+			textBoxProID = new TextBox();
 			label2 = new Label();
-			textBoxBeskriv = new TextBox();
-			textBoxMinLager = new TextBox();
-			textBoxDato = new TextBox();
-			textBoxMaksLager = new TextBox();
+			textBoxNavn = new TextBox();
+			textBoxAntal = new TextBox();
+			textBoxSalgsID = new TextBox();
+			textBoxMaal = new TextBox();
 			label3 = new Label();
 			label4 = new Label();
 			label5 = new Label();
 			label6 = new Label();
 			label7 = new Label();
-			textBox2 = new TextBox();
+			textBoxVaegt = new TextBox();
+			textBoxBeskriv = new TextBox();
+			textBoxDato = new TextBox();
+			textBoxMinbehold = new TextBox();
+			textBoxMaxbehold = new TextBox();
+			textBoxMoebeltype = new TextBox();
+			textBoxMaterialer = new TextBox();
+			textBoxKostpris = new TextBox();
+			textBoxSalgspris = new TextBox();
+			label8 = new Label();
+			label9 = new Label();
+			label10 = new Label();
+			label11 = new Label();
+			label12 = new Label();
+			label13 = new Label();
+			label14 = new Label();
+			label15 = new Label();
 			SuspendLayout();
 			// 
 			// textBox1
@@ -73,7 +89,7 @@
 			// 
 			// buttonAdd
 			// 
-			buttonAdd.Location = new Point(98, 228);
+			buttonAdd.Location = new Point(81, 409);
 			buttonAdd.Name = "buttonAdd";
 			buttonAdd.Size = new Size(94, 29);
 			buttonAdd.TabIndex = 3;
@@ -81,125 +97,278 @@
 			buttonAdd.UseVisualStyleBackColor = true;
 			buttonAdd.Click += buttonAdd_Click;
 			// 
-			// textBoxNavn
+			// textBoxProID
 			// 
-			textBoxNavn.Location = new Point(44, 34);
-			textBoxNavn.Name = "textBoxNavn";
-			textBoxNavn.Size = new Size(51, 27);
-			textBoxNavn.TabIndex = 4;
+			textBoxProID.Location = new Point(36, 34);
+			textBoxProID.Name = "textBoxProID";
+			textBoxProID.Size = new Size(59, 27);
+			textBoxProID.TabIndex = 4;
+			textBoxProID.TextChanged += textBoxNavn_TextChanged;
 			// 
 			// label2
 			// 
 			label2.AutoSize = true;
 			label2.Location = new Point(44, 9);
 			label2.Name = "label2";
-			label2.Size = new Size(43, 20);
+			label2.Size = new Size(75, 20);
 			label2.TabIndex = 5;
-			label2.Text = "Navn";
+			label2.Text = "ProduktID";
+			label2.Click += label2_Click;
 			// 
-			// textBoxBeskriv
+			// textBoxNavn
 			// 
-			textBoxBeskriv.Location = new Point(133, 34);
-			textBoxBeskriv.Name = "textBoxBeskriv";
-			textBoxBeskriv.Size = new Size(125, 27);
-			textBoxBeskriv.TabIndex = 6;
+			textBoxNavn.Location = new Point(133, 34);
+			textBoxNavn.Name = "textBoxNavn";
+			textBoxNavn.Size = new Size(125, 27);
+			textBoxNavn.TabIndex = 6;
 			// 
-			// textBoxMinLager
+			// textBoxAntal
 			// 
-			textBoxMinLager.Location = new Point(133, 92);
-			textBoxMinLager.Name = "textBoxMinLager";
-			textBoxMinLager.Size = new Size(125, 27);
-			textBoxMinLager.TabIndex = 7;
+			textBoxAntal.Location = new Point(36, 200);
+			textBoxAntal.Name = "textBoxAntal";
+			textBoxAntal.Size = new Size(56, 27);
+			textBoxAntal.TabIndex = 7;
 			// 
-			// textBoxDato
+			// textBoxSalgsID
 			// 
-			textBoxDato.Location = new Point(44, 92);
-			textBoxDato.Name = "textBoxDato";
-			textBoxDato.Size = new Size(51, 27);
-			textBoxDato.TabIndex = 8;
+			textBoxSalgsID.Location = new Point(36, 92);
+			textBoxSalgsID.Name = "textBoxSalgsID";
+			textBoxSalgsID.Size = new Size(59, 27);
+			textBoxSalgsID.TabIndex = 8;
 			// 
-			// textBoxMaksLager
+			// textBoxMaal
 			// 
-			textBoxMaksLager.Location = new Point(133, 142);
-			textBoxMaksLager.Name = "textBoxMaksLager";
-			textBoxMaksLager.Size = new Size(125, 27);
-			textBoxMaksLager.TabIndex = 9;
+			textBoxMaal.Location = new Point(161, 200);
+			textBoxMaal.Name = "textBoxMaal";
+			textBoxMaal.Size = new Size(59, 27);
+			textBoxMaal.TabIndex = 9;
 			// 
 			// label3
 			// 
 			label3.AutoSize = true;
 			label3.Location = new Point(142, 8);
 			label3.Name = "label3";
-			label3.Size = new Size(81, 20);
+			label3.Size = new Size(43, 20);
 			label3.TabIndex = 10;
-			label3.Text = "Beskrivelse";
+			label3.Text = "Navn";
+			label3.Click += label3_Click;
 			// 
 			// label4
 			// 
 			label4.AutoSize = true;
 			label4.Location = new Point(47, 72);
 			label4.Name = "label4";
-			label4.Size = new Size(42, 20);
+			label4.Size = new Size(59, 20);
 			label4.TabIndex = 11;
-			label4.Text = "Dato";
+			label4.Text = "SalgsID";
 			// 
 			// label5
 			// 
 			label5.AutoSize = true;
-			label5.Location = new Point(136, 69);
+			label5.Location = new Point(43, 177);
 			label5.Name = "label5";
-			label5.Size = new Size(71, 20);
+			label5.Size = new Size(44, 20);
 			label5.TabIndex = 12;
-			label5.Text = "MinLager";
+			label5.Text = "Antal";
+			label5.Click += label5_Click;
 			// 
 			// label6
 			// 
 			label6.AutoSize = true;
-			label6.Location = new Point(140, 122);
+			label6.Location = new Point(169, 175);
 			label6.Name = "label6";
-			label6.Size = new Size(80, 20);
+			label6.Size = new Size(42, 20);
 			label6.TabIndex = 13;
-			label6.Text = "MaksLager";
+			label6.Text = "Maal";
 			// 
 			// label7
 			// 
 			label7.AutoSize = true;
 			label7.Location = new Point(45, 122);
 			label7.Name = "label7";
-			label7.Size = new Size(50, 20);
+			label7.Size = new Size(47, 20);
 			label7.TabIndex = 14;
-			label7.Text = "label7";
+			label7.Text = "Vaegt";
 			// 
-			// textBox2
+			// textBoxVaegt
 			// 
-			textBox2.Location = new Point(23, 142);
-			textBox2.Name = "textBox2";
-			textBox2.Size = new Size(72, 27);
-			textBox2.TabIndex = 15;
+			textBoxVaegt.Location = new Point(36, 145);
+			textBoxVaegt.Name = "textBoxVaegt";
+			textBoxVaegt.Size = new Size(59, 27);
+			textBoxVaegt.TabIndex = 15;
+			textBoxVaegt.TextChanged += textBox2_TextChanged;
+			// 
+			// textBoxBeskriv
+			// 
+			textBoxBeskriv.Location = new Point(133, 92);
+			textBoxBeskriv.Name = "textBoxBeskriv";
+			textBoxBeskriv.Size = new Size(125, 27);
+			textBoxBeskriv.TabIndex = 16;
+			// 
+			// textBoxDato
+			// 
+			textBoxDato.Location = new Point(161, 253);
+			textBoxDato.Name = "textBoxDato";
+			textBoxDato.Size = new Size(59, 27);
+			textBoxDato.TabIndex = 17;
+			// 
+			// textBoxMinbehold
+			// 
+			textBoxMinbehold.Location = new Point(36, 253);
+			textBoxMinbehold.Name = "textBoxMinbehold";
+			textBoxMinbehold.Size = new Size(56, 27);
+			textBoxMinbehold.TabIndex = 18;
+			// 
+			// textBoxMaxbehold
+			// 
+			textBoxMaxbehold.Location = new Point(167, 304);
+			textBoxMaxbehold.Name = "textBoxMaxbehold";
+			textBoxMaxbehold.Size = new Size(51, 27);
+			textBoxMaxbehold.TabIndex = 19;
+			// 
+			// textBoxMoebeltype
+			// 
+			textBoxMoebeltype.Location = new Point(36, 304);
+			textBoxMoebeltype.Name = "textBoxMoebeltype";
+			textBoxMoebeltype.Size = new Size(56, 27);
+			textBoxMoebeltype.TabIndex = 20;
+			// 
+			// textBoxMaterialer
+			// 
+			textBoxMaterialer.Location = new Point(133, 145);
+			textBoxMaterialer.Name = "textBoxMaterialer";
+			textBoxMaterialer.Size = new Size(125, 27);
+			textBoxMaterialer.TabIndex = 21;
+			// 
+			// textBoxKostpris
+			// 
+			textBoxKostpris.Location = new Point(36, 355);
+			textBoxKostpris.Name = "textBoxKostpris";
+			textBoxKostpris.Size = new Size(51, 27);
+			textBoxKostpris.TabIndex = 22;
+			// 
+			// textBoxSalgspris
+			// 
+			textBoxSalgspris.Location = new Point(169, 355);
+			textBoxSalgspris.Name = "textBoxSalgspris";
+			textBoxSalgspris.Size = new Size(51, 27);
+			textBoxSalgspris.TabIndex = 23;
+			// 
+			// label8
+			// 
+			label8.AutoSize = true;
+			label8.Location = new Point(151, 72);
+			label8.Name = "label8";
+			label8.Size = new Size(81, 20);
+			label8.TabIndex = 24;
+			label8.Text = "Beskrivelse";
+			label8.Click += label8_Click;
+			// 
+			// label9
+			// 
+			label9.AutoSize = true;
+			label9.Location = new Point(169, 230);
+			label9.Name = "label9";
+			label9.Size = new Size(42, 20);
+			label9.TabIndex = 25;
+			label9.Text = "Dato";
+			// 
+			// label10
+			// 
+			label10.AutoSize = true;
+			label10.Location = new Point(12, 230);
+			label10.Name = "label10";
+			label10.Size = new Size(110, 20);
+			label10.TabIndex = 26;
+			label10.Text = "Minbeholdning";
+			label10.Click += label10_Click;
+			// 
+			// label11
+			// 
+			label11.AutoSize = true;
+			label11.Location = new Point(133, 281);
+			label11.Name = "label11";
+			label11.Size = new Size(113, 20);
+			label11.TabIndex = 27;
+			label11.Text = "Maxbeholdning";
+			// 
+			// label12
+			// 
+			label12.AutoSize = true;
+			label12.Location = new Point(17, 281);
+			label12.Name = "label12";
+			label12.Size = new Size(89, 20);
+			label12.TabIndex = 28;
+			label12.Text = "Moebeltype";
+			// 
+			// label13
+			// 
+			label13.AutoSize = true;
+			label13.Location = new Point(149, 122);
+			label13.Name = "label13";
+			label13.Size = new Size(77, 20);
+			label13.TabIndex = 29;
+			label13.Text = "Materialer";
+			label13.Click += label13_Click;
+			// 
+			// label14
+			// 
+			label14.AutoSize = true;
+			label14.Location = new Point(33, 334);
+			label14.Name = "label14";
+			label14.Size = new Size(62, 20);
+			label14.TabIndex = 30;
+			label14.Text = "Kostpris";
+			label14.Click += label14_Click;
+			// 
+			// label15
+			// 
+			label15.AutoSize = true;
+			label15.Location = new Point(158, 332);
+			label15.Name = "label15";
+			label15.Size = new Size(68, 20);
+			label15.TabIndex = 31;
+			label15.Text = "Salgspris";
 			// 
 			// LagerMenu
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(800, 450);
-			Controls.Add(textBox2);
+			Controls.Add(label15);
+			Controls.Add(label14);
+			Controls.Add(label13);
+			Controls.Add(label12);
+			Controls.Add(label11);
+			Controls.Add(label10);
+			Controls.Add(label9);
+			Controls.Add(label8);
+			Controls.Add(textBoxSalgspris);
+			Controls.Add(textBoxKostpris);
+			Controls.Add(textBoxMaterialer);
+			Controls.Add(textBoxMoebeltype);
+			Controls.Add(textBoxMaxbehold);
+			Controls.Add(textBoxMinbehold);
+			Controls.Add(textBoxDato);
+			Controls.Add(textBoxBeskriv);
+			Controls.Add(textBoxVaegt);
 			Controls.Add(label7);
 			Controls.Add(label6);
 			Controls.Add(label5);
 			Controls.Add(label4);
 			Controls.Add(label3);
-			Controls.Add(textBoxMaksLager);
-			Controls.Add(textBoxDato);
-			Controls.Add(textBoxMinLager);
-			Controls.Add(textBoxBeskriv);
-			Controls.Add(label2);
+			Controls.Add(textBoxMaal);
+			Controls.Add(textBoxSalgsID);
+			Controls.Add(textBoxAntal);
 			Controls.Add(textBoxNavn);
+			Controls.Add(label2);
+			Controls.Add(textBoxProID);
 			Controls.Add(buttonAdd);
 			Controls.Add(label1);
 			Controls.Add(buttonOrdreSearch);
 			Controls.Add(textBox1);
 			Name = "LagerMenu";
-			Text = "LagerMenu";
+			Text = "Antal";
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -210,17 +379,33 @@
         private Button buttonOrdreSearch;
         private Label label1;
         private Button buttonAdd;
-        private TextBox textBoxNavn;
+        private TextBox textBoxProID;
         private Label label2;
-        private TextBox textBoxBeskriv;
-        private TextBox textBoxMinLager;
-        private TextBox textBoxDato;
-        private TextBox textBoxMaksLager;
+        private TextBox textBoxNavn;
+        private TextBox textBoxAntal;
+        private TextBox textBoxSalgsID;
+        private TextBox textBoxMaal;
         private Label label3;
         private Label label4;
         private Label label5;
         private Label label6;
 		private Label label7;
-		private TextBox textBox2;
+		private TextBox textBoxVaegt;
+		private TextBox textBoxBeskriv;
+		private TextBox textBoxDato;
+		private TextBox textBoxMinbehold;
+		private TextBox textBoxMaxbehold;
+		private TextBox textBoxMoebeltype;
+		private TextBox textBoxMaterialer;
+		private TextBox textBoxKostpris;
+		private TextBox textBoxSalgspris;
+		private Label label8;
+		private Label label9;
+		private Label label10;
+		private Label label11;
+		private Label label12;
+		private Label label13;
+		private Label label14;
+		private Label label15;
 	}
 }

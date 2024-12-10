@@ -12,8 +12,8 @@ namespace LagerApp_final_
 		public string Navn { get; set; }
 		public int SalgsID { get; set; }
 		public int Antal { get; set; }
-		public int Vægt { get; set; }
-		public string Mål { get; set; }
+		public string Vaegt { get; set; }
+		public string Maal { get; set; }
 		public string Beskrivelse { get; set; }
         public string Dato { get; set; }
         public int Minimumsbeholdning { get; set; }
@@ -23,14 +23,14 @@ namespace LagerApp_final_
 		public int Kostpris { get; set; }
 		public int SalgsPris { get; set; }
 
-		public Produkter(int produktID, string navn, int salgsID, int antal, int vægt, string mål, string beskrivelse, string dato, int minimumsbeholdning, int maksimumsbeholdning, string moebeltype, string materialer, int kostpris, int salgsPris)
+		public Produkter(int produktID, string navn, int salgsID, int antal, string vaegt, string maal, string beskrivelse, string dato, int minimumsbeholdning, int maksimumsbeholdning, string moebeltype, string materialer, int kostpris, int salgsPris)
 		{
 			ProduktID = produktID;
 			Navn = navn;
 			SalgsID = salgsID;
 			Antal = antal;
-			Vægt = vægt;
-			Mål = mål;
+			Vaegt = vaegt;
+			Maal = maal;
 			Beskrivelse = beskrivelse;
 			Dato = dato;
 			Minimumsbeholdning = minimumsbeholdning;
