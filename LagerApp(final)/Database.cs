@@ -19,6 +19,7 @@ namespace LagerApp_final_
             _connectionString = connectionString;
         }
 
+        //ADD CRUD
         public void AddProdukt(Produkter produkt)
         {
             using var connection = new SqlConnection(_connectionString);
@@ -28,8 +29,8 @@ namespace LagerApp_final_
             using var command = new SqlCommand("INSERT INTO Produkter ( Navn, Beskrivelse, Dato, Minimumsbeholdning, Maksimumsbeholdning, Pris) " +
               "VALUES (@Navn, @Beskrivelse, @Dato, @Minimumsbeholdning, @Maksimumsbeholdning, @Pris)", connection);
 
-
-            //command.Parameters.AddWithValue("@SalgsID", produkt.SalgsID);
+            //Dette gør man kun så der ikke kan laves sql injections
+            //command.Parameters.AddWithValue("@SalgsID", produkt.SalgsID); bliver lavet auto PrimaryKey
             command.Parameters.AddWithValue("@Navn", produkt.Navn);
             command.Parameters.AddWithValue("@Beskrivelse", produkt.Beskrivelse);
             command.Parameters.AddWithValue("@Dato", produkt.Dato);
@@ -41,7 +42,7 @@ namespace LagerApp_final_
         }
 
 
-        //read
+        //read Read
        public MedarbejderLogin ReadWorker(string username, string password)
         {
             string MedarbejderID = null;
@@ -53,7 +54,7 @@ namespace LagerApp_final_
 
             using var command = new SqlCommand("SELECT MedarbejderID, Password FROM Medarbejder WHERE MedarbejderID = @username AND Password = @password", connection);
 
-            //Dett gør man kun så der ikke kan laves sql injections
+            //Dette gør man kun så der ikke kan laves sql injections
             command.Parameters.AddWithValue("@username", username);
             command.Parameters.AddWithValue("@password", password);
 
