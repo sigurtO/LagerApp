@@ -26,19 +26,28 @@ namespace LagerApp_final_
             connection.Open();
 
 
-            using var command = new SqlCommand("INSERT INTO Produkter ( Navn, Beskrivelse, Dato, Minimumsbeholdning, Maksimumsbeholdning, Pris) " +
-              "VALUES (@Navn, @Beskrivelse, @Dato, @Minimumsbeholdning, @Maksimumsbeholdning, @Pris)", connection);
+            using var command = new SqlCommand("INSERT INTO Produkter ( ProduktID, Navn, SalgsID, Antal, Vaegt, Maal,  Beskrivelse, Dato, Minimumsbeholdning, Maksimumsbeholdning, Moebeltype, Materialer, Kostpris, Salgspris) " +
+              "VALUES (@ProduktID, @Navn, @SalgsID, @Antal, @Vaegt, @Maal, @Beskrivelse, @Dato, @Minimumsbeholdning, @Maksimumsbeholdning, @Moebeltype, @Materialer, @Kostpris, @Salgspris)", connection);
 
-            //Dette gør man kun så der ikke kan laves sql injections
-            //command.Parameters.AddWithValue("@SalgsID", produkt.SalgsID); bliver lavet auto PrimaryKey
+
+            //command.Parameters.AddWithValue("@SalgsID", produkt.SalgsID);
+            command.Parameters.AddWithValue("@ProduktID", produkt.ProduktID);
             command.Parameters.AddWithValue("@Navn", produkt.Navn);
-            command.Parameters.AddWithValue("@Beskrivelse", produkt.Beskrivelse);
+            command.Parameters.AddWithValue("@SalgsID", produkt.ProduktID);
+			command.Parameters.AddWithValue("@Antal", produkt.Antal);
+            command.Parameters.AddWithValue("@Vaegt", produkt.Vaegt);
+			command.Parameters.AddWithValue("@Maal", produkt.Maal);
+			command.Parameters.AddWithValue("@Beskrivelse", produkt.Beskrivelse);
             command.Parameters.AddWithValue("@Dato", produkt.Dato);
             command.Parameters.AddWithValue("@Minimumsbeholdning", produkt.Minimumsbeholdning);
             command.Parameters.AddWithValue("@Maksimumsbeholdning", produkt.Maksimumsbeholdning);
-            command.Parameters.AddWithValue("@Pris", produkt.Pris);
+			command.Parameters.AddWithValue("@Moebeltype", produkt.Moebeltype);
+            command.Parameters.AddWithValue("@Materialer", produkt.Materialer);
+            command.Parameters.AddWithValue("@Kostpris", produkt.Kostpris);
+			command.Parameters.AddWithValue("@Salgspris", produkt.SalgsPris);
 
-            command.ExecuteNonQuery();
+            
+			command.ExecuteNonQuery();
         }
 
 
