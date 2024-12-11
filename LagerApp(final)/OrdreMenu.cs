@@ -17,7 +17,6 @@ namespace LagerApp_final_
         {
             InitializeComponent();
             
-            //buttonOrdreSearch.Click += buttonOrdreSearch_Click;
 
         }
 
