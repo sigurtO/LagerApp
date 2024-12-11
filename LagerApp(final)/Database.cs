@@ -40,9 +40,35 @@ namespace LagerApp_final_
             command.ExecuteNonQuery();
         }
 
+        public void AddRaavare(Raavare raavare)
+        {
+            using var connection = new SqlConnection(_connectionString);
+            connection.Open();
+            using var command = new SqlCommand("INSERT INTO Raavare (Navn, Antal, MinimumsBeholdning, MaksimumsBeholdning, Maal, Vaegt, Lokation, MaterialeID MaterialeType) " +
+            "VALEUS (@Navn, @Antal, @MinimumsBeholdning, @MaksmimumsBeholdning, @Maal, @Vaegt@, @Lokation, @MaterialeID, @MaterialeType )", connection);
 
-        //read
-       public MedarbejderLogin ReadWorker(string username, string password)
+           
+            //Dette er for at forhindre SQL Injections//
+            command.Parameters.AddWithValue("@Navn", raavare.Navn);
+            command.Parameters.AddWithValue("@Antal", raavare.Antal);
+            command.Parameters.AddWithValue("@MinimumsBeholdning", raavare.MinimumsBeholding);
+            command.Parameters.AddWithValue("@MaksimumsBeholdning", raavare.MaksimumsBeholdning);
+            command.Parameters.AddWithValue("@Maal", raavare.Maal);
+            command.Parameters.AddWithValue("@Vaegt", raavare.Vaegt);
+            command.Parameters.AddWithValue("@Lokation", raavare.Lokation);
+            command.Parameters.AddWithValue("@MaterialeID", raavare.MaterialeID);
+            command.Parameters.AddWithValue("@MaterialeType", raavare.MaterialeType);
+
+
+            command.ExecuteNonQuery();
+
+        }
+
+
+
+
+            //read
+            public MedarbejderLogin ReadWorker(string username, string password)
         {
             string MedarbejderID = null;
             string Password = null;
