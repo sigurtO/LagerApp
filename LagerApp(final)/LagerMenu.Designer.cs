@@ -377,6 +377,8 @@
 
 		private TextBox textBox1;
         private Button buttonOrdreSearch;
+        private TextBox textBox1;
+        private Button buttonProduktSearch;
         private Label label1;
         private Button buttonAdd;
         private TextBox textBoxProID;
@@ -408,4 +410,8 @@
 		private Label label14;
 		private Label label15;
 	}
+        private TextBox textBoxPris;
+        private Label label7;
+        private ListBox listBoxProdukt;
+    }
 }
