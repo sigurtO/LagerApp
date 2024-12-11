@@ -45,22 +45,22 @@ namespace LagerApp_final_
 
 
 
-			Produkter Nyprodukt = new Produkter
-			{
-				ProduktID = produktId,
-				Navn = navn,
-				SalgsID = salgsId,
-				Antal = antal,
-				Vaegt = vaegt,
-				Maal = maal,
-				Beskrivelse = beskrivelse,
-				Dato = dato,
-				Minimumsbeholdning = minimumsbeholdning,
-				Maksimumsbeholdning = maksimumsbeholdning,
-				Moebeltype = moebeltype,
-				Materialer = materialer,
-				Kostpris = kostPris,
-				SalgsPris = salgsPris
+            Produkter Nyprodukt = new Produkter
+            {
+                ProduktID = produktId,
+                Navn = navn,
+                SalgsID = salgsId,
+                Antal = antal,
+                Vaegt = vaegt,
+                Maal = maal,
+                Beskrivelse = beskrivelse,
+                Dato = dato,
+                Minimumsbeholdning = minimumsbeholdning,
+                Maksimumsbeholdning = maksimumsbeholdning,
+                Moebeltype = moebeltype,
+                Materialer = materialer,
+                Kostpris = kostPris,
+                SalgsPris = salgsPris
 
                 //Navn = navn,
                 //Beskrivelse = beskrivelse,
@@ -116,7 +116,7 @@ namespace LagerApp_final_
 
         }
 
-                public void buttonProductSearch_Click(object sender, EventArgs e)
+        public void buttonProductSearch_Click(object sender, EventArgs e)
         {
             int ProduktID = int.Parse(textBoxProduktsøgning.Text);
             var produktListe = Program.Database.ReadProdukt(ProduktID);
@@ -126,71 +126,72 @@ namespace LagerApp_final_
         private void label14_Click(object sender, EventArgs e)
         {
 
-		}
-
-		private void button1_Click(object sender, EventArgs e)
-		{
-    try
-    {
-        // Parse ProduktID to identify the product to update
-        if (!int.TryParse(textBoxProID.Text, out int produktId))
-        {
-            MessageBox.Show("Please provide a valid ProduktID.");
-            return;
         }
 
-				// Retrieve the existing product
-			Produkter existingProdukt = Program.Database.GetProduktById(produktId);
-        // Update only fields with new values
-        if (!string.IsNullOrWhiteSpace(textBoxNavn.Text))
-            existingProdukt.Navn = textBoxNavn.Text;
 
-        if (int.TryParse(textBoxSalgsID.Text, out int salgsId))
-            existingProdukt.SalgsID = salgsId;
+        private void button1Update_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Parse ProduktID to identify the product to update
+                if (!int.TryParse(textBoxProID.Text, out int produktId))
+                {
+                    MessageBox.Show("Please provide a valid ProduktID.");
+                    return;
+                }
 
-        if (int.TryParse(textBoxAntal.Text, out int antal))
-            existingProdukt.Antal = antal;
+                // Retrieve the existing product
+                Produkter existingProdukt = Program.Database.GetProduktById(produktId);
+                // Update only fields with new values
+                if (!string.IsNullOrWhiteSpace(textBoxNavn.Text))
+                    existingProdukt.Navn = textBoxNavn.Text;
 
-        if (!string.IsNullOrWhiteSpace(textBoxVaegt.Text))
-            existingProdukt.Vaegt = textBoxVaegt.Text;
+                if (int.TryParse(textBoxSalgsID.Text, out int salgsId))
+                    existingProdukt.SalgsID = salgsId;
 
-        if (!string.IsNullOrWhiteSpace(textBoxMaal.Text))
-            existingProdukt.Maal = textBoxMaal.Text;
+                if (int.TryParse(textBoxAntal.Text, out int antal))
+                    existingProdukt.Antal = antal;
 
-        if (!string.IsNullOrWhiteSpace(textBoxBeskriv.Text))
-            existingProdukt.Beskrivelse = textBoxBeskriv.Text;
+                if (!string.IsNullOrWhiteSpace(textBoxVaegt.Text))
+                    existingProdukt.Vaegt = textBoxVaegt.Text;
 
-        if (!string.IsNullOrWhiteSpace(textBoxDato.Text))
-            existingProdukt.Dato = textBoxDato.Text;
+                if (!string.IsNullOrWhiteSpace(textBoxMaal.Text))
+                    existingProdukt.Maal = textBoxMaal.Text;
 
-        if (int.TryParse(textBoxMinbehold.Text, out int minimumsbeholdning))
-            existingProdukt.Minimumsbeholdning = minimumsbeholdning;
+                if (!string.IsNullOrWhiteSpace(textBoxBeskriv.Text))
+                    existingProdukt.Beskrivelse = textBoxBeskriv.Text;
 
-        if (int.TryParse(textBoxMaxbehold.Text, out int maksimumsbeholdning))
-            existingProdukt.Maksimumsbeholdning = maksimumsbeholdning;
+                if (!string.IsNullOrWhiteSpace(textBoxDato.Text))
+                    existingProdukt.Dato = textBoxDato.Text;
 
-        if (!string.IsNullOrWhiteSpace(textBoxMoebeltype.Text))
-            existingProdukt.Moebeltype = textBoxMoebeltype.Text;
+                if (int.TryParse(textBoxMinbehold.Text, out int minimumsbeholdning))
+                    existingProdukt.Minimumsbeholdning = minimumsbeholdning;
 
-        if (!string.IsNullOrWhiteSpace(textBoxMaterialer.Text))
-            existingProdukt.Materialer = textBoxMaterialer.Text;
+                if (int.TryParse(textBoxMaxbehold.Text, out int maksimumsbeholdning))
+                    existingProdukt.Maksimumsbeholdning = maksimumsbeholdning;
 
-        if (int.TryParse(textBoxKostpris.Text, out int kostPris))
-            existingProdukt.Kostpris = kostPris;
+                if (!string.IsNullOrWhiteSpace(textBoxMoebeltype.Text))
+                    existingProdukt.Moebeltype = textBoxMoebeltype.Text;
 
-        if (int.TryParse(textBoxSalgspris.Text, out int salgsPris))
-            existingProdukt.SalgsPris = salgsPris;
+                if (!string.IsNullOrWhiteSpace(textBoxMaterialer.Text))
+                    existingProdukt.Materialer = textBoxMaterialer.Text;
 
-        // Save changes
-        Program.Database.SaveUpdatedProdukt(existingProdukt);
+                if (int.TryParse(textBoxKostpris.Text, out int kostPris))
+                    existingProdukt.Kostpris = kostPris;
 
-        MessageBox.Show("Product was updated successfully.");
-    }
-    catch (Exception ex)
-    {
-        MessageBox.Show($"An error occurred: {ex.Message}");
+                if (int.TryParse(textBoxSalgspris.Text, out int salgsPris))
+                    existingProdukt.SalgsPris = salgsPris;
+
+                // Save changes
+                Program.Database.SaveUpdatedProdukt(existingProdukt);
+
+                MessageBox.Show("Product was updated successfully.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+
+        }
     }
 }
-
-	}
-	}
