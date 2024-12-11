@@ -28,7 +28,6 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			textBox1 = new TextBox();
 			buttonOrdreSearch = new Button();
 			label1 = new Label();
 			buttonAdd = new Button();
@@ -64,10 +63,6 @@
 			// 
 			// textBox1
 			// 
-			textBox1.Location = new Point(587, 112);
-			textBox1.Name = "textBox1";
-			textBox1.Size = new Size(125, 27);
-			textBox1.TabIndex = 0;
 			// 
 			// buttonOrdreSearch
 			// 
@@ -377,7 +372,6 @@
 
 		private TextBox textBox1;
         private Button buttonOrdreSearch;
-        private TextBox textBox1;
         private Button buttonProduktSearch;
         private Label label1;
         private Button buttonAdd;
@@ -410,8 +404,4 @@
 		private Label label14;
 		private Label label15;
 	}
-        private TextBox textBoxPris;
-        private Label label7;
-        private ListBox listBoxProdukt;
-    }
 }
