@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LagerApp_final_;
 
 namespace LagerApp_final_
 {
@@ -31,19 +32,23 @@ namespace LagerApp_final_
         {
 
             string navn = textBox1Navn.Text;
-            int antal = int.Parse(textBox2Antal.Text);    
+            int antal = int.Parse(textBox2Antal.Text);
             int minimumsbeholdning = int.Parse(textBox3Min.Text);
-            int maksimumsbeholdning = int.Parse(textBox4Maks.Text);
+            int maksimumsBeholdning = int.Parse(textBox4Maks.Text);
             string maal = textBox5Maal.Text;
             int vaegt = int.Parse(textBox6Vaegt.Text);
             string lokation = textBox7Lokation.Text;
             int materialeID = int.Parse(textBox8Materiale.Text);
             string materialeType = textBox9MaterialeType.Text;
-            
-            
 
+            Raavare nyRaavare = new Raavare(navn, antal, minimumsbeholdning, maksimumsBeholdning, maal, vaegt, lokation, materialeID, materialeType);
+
+            Program.Database.AddRaavare(nyRaavare);
 
             MessageBox.Show("Det indtastede blev tilføjet");
         }
     }
 }
+
+
+

@@ -44,8 +44,8 @@ namespace LagerApp_final_
         {
             using var connection = new SqlConnection(_connectionString);
             connection.Open();
-            using var command = new SqlCommand("INSERT INTO Raavare (Navn, Antal, MinimumsBeholdning, MaksimumsBeholdning, Maal, Vaegt, Lokation, MaterialeID MaterialeType) " +
-            "VALEUS (@Navn, @Antal, @MinimumsBeholdning, @MaksmimumsBeholdning, @Maal, @Vaegt@, @Lokation, @MaterialeID, @MaterialeType )", connection);
+            using var command = new SqlCommand("INSERT INTO Raavare (Navn, Antal, MinimumsBeholdning, MaksimumsBeholdning, Maal, Vaegt, Lokation, MaterialeID, MaterialeType) " +
+            "VALUES (@Navn, @Antal, @MinimumsBeholdning, @MaksimumsBeholdning, @Maal, @Vaegt, @Lokation, @MaterialeID, @MaterialeType)", connection);
 
            
             //Dette er for at forhindre SQL Injections//
