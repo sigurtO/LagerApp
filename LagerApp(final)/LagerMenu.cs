@@ -60,7 +60,7 @@ namespace LagerApp_final_
 				Moebeltype = moebeltype,
 				Materialer = materialer,
 				Kostpris = kostPris,
-				SalgsPris = salgsPris
+				SalgsPris =	salgsPris
 
                 //Navn = navn,
                 //Beskrivelse = beskrivelse,
@@ -120,6 +120,7 @@ namespace LagerApp_final_
         {
 
 		}
+<<<<<<< HEAD
 
 		private void button1_Click(object sender, EventArgs e)
 		{
@@ -195,3 +196,8 @@ namespace LagerApp_final_
 
 }
 
+=======
+	}
+
+    }
+>>>>>>> parent of c99c881 (UpdateProdukter)

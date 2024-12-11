@@ -59,8 +59,10 @@
 			label13 = new Label();
 			label14 = new Label();
 			label15 = new Label();
-			buttonUpdate = new Button();
 			SuspendLayout();
+			// 
+			// textBox1
+			// 
 			// 
 			// buttonOrdreSearch
 			// 
@@ -82,7 +84,7 @@
 			// 
 			// buttonAdd
 			// 
-			buttonAdd.Location = new Point(17, 409);
+			buttonAdd.Location = new Point(81, 409);
 			buttonAdd.Name = "buttonAdd";
 			buttonAdd.Size = new Size(94, 29);
 			buttonAdd.TabIndex = 3;
@@ -323,22 +325,11 @@
 			label15.TabIndex = 31;
 			label15.Text = "Salgspris";
 			// 
-			// buttonUpdate
-			// 
-			buttonUpdate.Location = new Point(142, 409);
-			buttonUpdate.Name = "buttonUpdate";
-			buttonUpdate.Size = new Size(94, 29);
-			buttonUpdate.TabIndex = 32;
-			buttonUpdate.Text = "Update";
-			buttonUpdate.UseVisualStyleBackColor = false;
-			buttonUpdate.Click += button1_Click;
-			// 
 			// LagerMenu
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(800, 450);
-			Controls.Add(buttonUpdate);
 			Controls.Add(label15);
 			Controls.Add(label14);
 			Controls.Add(label13);
@@ -370,6 +361,7 @@
 			Controls.Add(buttonAdd);
 			Controls.Add(label1);
 			Controls.Add(buttonOrdreSearch);
+			Controls.Add(textBox1);
 			Name = "LagerMenu";
 			Text = "Antal";
 			ResumeLayout(false);
@@ -791,7 +783,11 @@
 		private Label label13;
 		private Label label14;
 		private Label label15;
+<<<<<<< HEAD
 		private Button buttonUpdate;
         private DataGridView dataGridViewProdukter;
     }
+=======
+	}
+>>>>>>> parent of c99c881 (UpdateProdukter)
 }
