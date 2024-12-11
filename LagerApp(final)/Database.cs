@@ -88,16 +88,16 @@ namespace LagerApp_final_
         }
 
 
-        public List<OrdreLager> ReadOrdre()
+        public List<OrdreLager> ReadOrdre(int userInput)
         {
             var ordreliste = new List<OrdreLager>();
             //Connection til sql
             using var connection = new SqlConnection(_connectionString);
             connection.Open();
 
-            string query = "SELECT * FROM Ordre";
 
-            using var command = new SqlCommand(query, connection);
+            using var command = new SqlCommand("SELECT * FROM Ordre where OrdreID = @OrdreID", connection);
+            command.Parameters.AddWithValue("@OrdreID", userInput);
 
             using var reader = command.ExecuteReader();
             while (reader.Read())

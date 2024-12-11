@@ -17,13 +17,14 @@ namespace LagerApp_final_
         {
             InitializeComponent();
             
-            buttonOrdreSearch.Click += buttonOrdreSearch_Click;
+            //buttonOrdreSearch.Click += buttonOrdreSearch_Click;
 
         }
 
         public void buttonOrdreSearch_Click(object sender, EventArgs e)
         {
-            var ordreListe = Program.Database.ReadOrdre();
+            int OrdreID = int.Parse(textBox1.Text);
+            var ordreListe = Program.Database.ReadOrdre(OrdreID);
             dataGridViewOrdre.DataSource = ordreListe;
         }
 
