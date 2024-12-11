@@ -14,6 +14,7 @@ namespace LagerApp_final_
     {
         private LagerMenu lagerMenu;
         private OrdreMenu ordreMenu;
+        private RåvarerMenu råvarerMenu;
         public MainMenu()
         {
             InitializeComponent();
@@ -31,6 +32,13 @@ namespace LagerApp_final_
         {
             ordreMenu = new OrdreMenu();
             ordreMenu.Show();
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)//Den hedder button1Raavarer//
+        {
+            råvarerMenu = new RåvarerMenu();
+            råvarerMenu.Show();
             this.Hide();
         }
     }
