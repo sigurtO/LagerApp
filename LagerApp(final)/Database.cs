@@ -81,7 +81,7 @@ namespace LagerApp_final_
         public List<OrdreLager> ReadOrdre()
         {
             var ordreliste = new List<OrdreLager>();
-
+            //Connection til sql
             using var connection = new SqlConnection(_connectionString);
             connection.Open();
 

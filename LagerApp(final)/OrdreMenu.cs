@@ -16,6 +16,7 @@ namespace LagerApp_final_
         public OrdreMenu()
         {
             InitializeComponent();
+            
             buttonOrdreSearch.Click += buttonOrdreSearch_Click;
 
         }
