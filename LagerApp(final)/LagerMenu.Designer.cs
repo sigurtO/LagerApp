@@ -62,12 +62,13 @@
             textBoxProduktsøgning = new TextBox();
             dataGridViewProdukter = new DataGridView();
             button1Update = new Button();
+            buttonExportToCVS = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewProdukter).BeginInit();
             SuspendLayout();
             // 
             // buttonProductSearch
             // 
-            buttonProductSearch.Location = new Point(587, 157);
+            buttonProductSearch.Location = new Point(466, 164);
             buttonProductSearch.Name = "buttonProductSearch";
             buttonProductSearch.Size = new Size(94, 29);
             buttonProductSearch.TabIndex = 1;
@@ -355,11 +356,22 @@
             button1Update.UseVisualStyleBackColor = true;
             button1Update.Click += button1Update_Click;
             // 
+            // buttonExportToCVS
+            // 
+            buttonExportToCVS.Location = new Point(587, 164);
+            buttonExportToCVS.Name = "buttonExportToCVS";
+            buttonExportToCVS.Size = new Size(94, 29);
+            buttonExportToCVS.TabIndex = 36;
+            buttonExportToCVS.Text = "Export CVS";
+            buttonExportToCVS.UseVisualStyleBackColor = true;
+            buttonExportToCVS.Click += buttonExportToCVS_Click;
+            // 
             // LagerMenu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 451);
+            Controls.Add(buttonExportToCVS);
             Controls.Add(button1Update);
             Controls.Add(dataGridViewProdukter);
             Controls.Add(textBoxProduktsøgning);
@@ -439,6 +451,7 @@
 		private Button buttonUpdate;
         private DataGridView dataGridViewProdukter;
         private Button button1Update;
+        private Button buttonExportToCVS;
     }
 
 }

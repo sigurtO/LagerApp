@@ -193,5 +193,18 @@ namespace LagerApp_final_
             }
 
         }
+
+        private void buttonExportToCVS_Click(object sender, EventArgs e)
+        {
+            int produktID = int.Parse(textBoxProduktsøgning.Text);
+
+            // Path to documents for all computers
+            string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "file.csv");
+
+            // Run code from database
+            Program.Database.ExportToCsv(produktID, filePath);
+
+            MessageBox.Show($"Data has been exported to {filePath}", "Export Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

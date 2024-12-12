@@ -235,13 +235,59 @@ namespace LagerApp_final_
 
 
 
+        public void ExportToCsv(int userinput, string filePath)
+        {
+            //Henter liste fra Readprodukt
+            var produktListe = ReadProdukt(userinput);
+
+            var header = "ProduktID,Navn,SalgsID,Antal,Vaegt,Maal,Beskrivelse,Dato,Minimumsbeholdning,Maksimumsbeholdning,Moebeltype,Materialer,Kostpris,SalgsPris";
+
+            
+            var rows = new List<string> { header };
+
+            // Loop igennem ProduktListe og lav en CSV row
+            foreach (var produkt in produktListe)
+            {
+                var row = $"{produkt.ProduktID}," +
+                          $"{EscapeCsv(produkt.Navn)}," +
+                          $"{produkt.SalgsID}," +
+                          $"{produkt.Antal}," +
+                          $"{EscapeCsv(produkt.Vaegt)}," +
+                          $"{EscapeCsv(produkt.Maal)}," +
+                          $"{EscapeCsv(produkt.Beskrivelse)}," +
+                          $"{EscapeCsv(produkt.Dato)}," +
+                          $"{produkt.Minimumsbeholdning}," +
+                          $"{produkt.Maksimumsbeholdning}," +
+                          $"{EscapeCsv(produkt.Moebeltype)}," +
+                          $"{EscapeCsv(produkt.Materialer)}," +
+                          $"{produkt.Kostpris}," +
+                          $"{produkt.SalgsPris}";
+
+                rows.Add(row);
+            }
+
+            // Write the rows to the CSV file
+            File.WriteAllLines(filePath, rows);
+        }
+
+        // Helper method to escape CSV values (handle commas and quotes in data)
+        private string EscapeCsv(string value)
+        {
+            if (value.Contains(",") || value.Contains("\""))
+            {
+                // Escape quotes by doubling them
+                value = "\"" + value.Replace("\"", "\"\"") + "\"";
+            }
+            return value;
+        }
 
 
 
 
 
 
-		public Produkter GetProduktById(int produktId)
+
+        public Produkter GetProduktById(int produktId)
 		{
 			using var connection = new SqlConnection(_connectionString);
 			connection.Open();
