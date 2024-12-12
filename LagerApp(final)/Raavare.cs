@@ -10,7 +10,7 @@ namespace LagerApp_final_
     {
         public string Navn { get; set; }
         public int Antal { get; set; }
-        public int Minimumsbeholding { get; set; }
+        public int Minimumsbeholdning { get; set; }
         public int Maksimumsbeholdning { get; set; }
         public string Maal { get; set; }
         public int Vaegt { get; set; }
@@ -19,10 +19,10 @@ namespace LagerApp_final_
         public string MaterialeType { get; set; }
 
         public Raavare(string navn, int antal, int minimumsbeholding, int maksimumsbeholdning, string maal, int vaegt, string lokation, int materialeID, string materialeType)
-        {
+        { 
             Navn = navn;
             Antal = antal;
-            Minimumsbeholding = minimumsbeholding;
+            Minimumsbeholdning = minimumsbeholding;
             Maksimumsbeholdning = maksimumsbeholdning;
             Maal = maal;
             Vaegt = vaegt;
@@ -32,9 +32,7 @@ namespace LagerApp_final_
         }
 
         public Raavare()
-        {
-            
-        }
+        { }
     }
 
 }

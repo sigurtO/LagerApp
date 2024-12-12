@@ -64,7 +64,7 @@ namespace LagerApp_final_
             //Dette er for at forhindre SQL Injections//
             command.Parameters.AddWithValue("@Navn", raavare.Navn);
             command.Parameters.AddWithValue("@Antal", raavare.Antal);
-            command.Parameters.AddWithValue("@MinimumsBeholbning", raavare.Minimumsbeholding);
+            command.Parameters.AddWithValue("@Minimumsbeholdning", raavare.Minimumsbeholdning);
             command.Parameters.AddWithValue("@Maksimumsbeholdning", raavare.Maksimumsbeholdning);
             command.Parameters.AddWithValue("@Maal", raavare.Maal);
             command.Parameters.AddWithValue("@Vaegt", raavare.Vaegt);
@@ -122,6 +122,39 @@ namespace LagerApp_final_
 
 
 		}
+
+		public void SaveUpdatedRaavare(Raavare raavare)
+		{
+			using var connection = new SqlConnection(_connectionString);
+			connection.Open();
+
+			var query = @"UPDATE Raavare
+          SET MaterialeID = @MaterialeID, 
+              Navn = @Navn, 
+              Antal = @Antal, 
+              Vaegt = @Vaegt, 
+              Maal = @Maal, 
+              Maksimumsbeholdning = @Maksimumsbeholdning, 
+              Minimumsbeholdning = @Minimumsbeholdning, 
+              Lokation = @Lokation, 
+              MaterialeType = @MaterialeType";
+
+			using var command = new SqlCommand(query, connection);
+			command.Parameters.AddWithValue("@MaterialeID", raavare.MaterialeID);
+			command.Parameters.AddWithValue("@Navn", raavare.Navn ?? (object)DBNull.Value);
+			command.Parameters.AddWithValue("@Antal", raavare.Antal);
+			command.Parameters.AddWithValue("@Vaegt", raavare.Vaegt);
+			command.Parameters.AddWithValue("@Maal", raavare.Maal);
+			command.Parameters.AddWithValue("@Maksimumsbeholdning", raavare.Maksimumsbeholdning);
+			command.Parameters.AddWithValue("@Minimumsbeholdning", raavare.Minimumsbeholdning);
+			command.Parameters.AddWithValue("@Lokation", raavare.Lokation ?? (object)DBNull.Value);
+			command.Parameters.AddWithValue("@MaterialeType", raavare.MaterialeType ?? (object)DBNull.Value);
+
+			command.ExecuteNonQuery();
+
+
+		}
+
 
 
 
@@ -358,6 +391,37 @@ namespace LagerApp_final_
 
 			return null; // Return null hvis intet er fundet.
 		}
+
+
+		public Raavare GetRaavareById(int materialeId)
+		{
+			using var connection = new SqlConnection(_connectionString);
+			connection.Open();
+
+			using var command = new SqlCommand("SELECT * FROM Raavare WHERE MaterialeID = @MaterialeID", connection);
+			command.Parameters.AddWithValue("@MaterialeID", materialeId);
+
+			using var reader = command.ExecuteReader();
+
+			if (reader.Read())
+			{
+				return new Raavare
+				{
+					Navn = reader.GetString(0),
+					Antal = reader.GetInt32(1),
+					Minimumsbeholdning = reader.GetInt32(2),
+					Maksimumsbeholdning = reader.GetInt32(3),
+					Maal = reader.GetString(4),
+					Vaegt = reader.GetInt32(5),
+					Lokation = reader.GetString(6),
+					MaterialeID = reader.GetInt32(7),
+					MaterialeType = reader.GetString(8)
+				};
+			}
+
+			return null; // Return null if no product is found.
+		}
+
 	}
 
 }

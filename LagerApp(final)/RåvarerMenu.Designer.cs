@@ -20,7 +20,7 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+		#region Windows Form Designer generated code
 
         /// <summary>
         /// Required method for Designer support - do not modify
@@ -326,8 +326,8 @@
             PerformLayout();
         }
 
-        #endregion
-        private TextBox textBox1Navn;
+		#endregion
+		private TextBox textBox1Navn;
         private TextBox textBox2Antal;
         private Label label1;
         private Label label2;
@@ -352,5 +352,8 @@
         private Button buttonRaavareSearch;
         private TextBox textBoxRaavare;
         private Button buttonBack;
+        private Button buttonOpdater;
     }
+
+	}
 }
