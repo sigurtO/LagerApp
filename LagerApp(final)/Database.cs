@@ -57,15 +57,15 @@ namespace LagerApp_final_
         {
             using var connection = new SqlConnection(_connectionString);
             connection.Open();
-            using var command = new SqlCommand("INSERT INTO Raavare (Navn, Antal, MinimumsBeholdning, MaksimumsBeholdning, Maal, Vaegt, Lokation, MaterialeID, MaterialeType) " +
-            "VALUES (@Navn, @Antal, @MinimumsBeholdning, @MaksimumsBeholdning, @Maal, @Vaegt, @Lokation, @MaterialeID, @MaterialeType)", connection);
+            using var command = new SqlCommand("INSERT INTO Raavare (Navn, Antal, Minimumsbeholdning, Maksimumsbeholdning, Maal, Vaegt, Lokation, MaterialeID, MaterialeType) " +
+            "VALUES (@Navn, @Antal, @Minimumsbeholdning, @Maksimumsbeholdning, @Maal, @Vaegt, @Lokation, @MaterialeID, @MaterialeType)", connection);
 
            
             //Dette er for at forhindre SQL Injections//
             command.Parameters.AddWithValue("@Navn", raavare.Navn);
             command.Parameters.AddWithValue("@Antal", raavare.Antal);
-            command.Parameters.AddWithValue("@MinimumsBeholdning", raavare.MinimumsBeholding);
-            command.Parameters.AddWithValue("@MaksimumsBeholdning", raavare.MaksimumsBeholdning);
+            command.Parameters.AddWithValue("@MinimumsBeholbning", raavare.Minimumsbeholding);
+            command.Parameters.AddWithValue("@Maksimumsbeholdning", raavare.Maksimumsbeholdning);
             command.Parameters.AddWithValue("@Maal", raavare.Maal);
             command.Parameters.AddWithValue("@Vaegt", raavare.Vaegt);
             command.Parameters.AddWithValue("@Lokation", raavare.Lokation);
@@ -168,7 +168,7 @@ namespace LagerApp_final_
             using var connection = new SqlConnection(_connectionString);
             connection.Open();
 
-
+            //det her gør man får at indgå sql injections og selve koden er det jeg beder vores database om at finde
             using var command = new SqlCommand("SELECT * FROM Ordre where OrdreID = @OrdreID", connection);
             command.Parameters.AddWithValue("@OrdreID", userInput);
 
@@ -233,7 +233,45 @@ namespace LagerApp_final_
 
         }
 
+        public List<Raavare> ReadRaavare(int userinput)
+        {
 
+            var raavareListe = new List<Raavare>();
+            using var connection = new SqlConnection(_connectionString);
+            connection.Open();
+
+
+            using var command = new SqlCommand("SELECT * FROM Raavare WHERE MaterialeID = @MaterialeID", connection);
+            command.Parameters.AddWithValue("@MaterialeID", userinput);
+            using var reader = command.ExecuteReader();
+
+
+            while (reader.Read())
+            {
+                var raavare = new Raavare
+                {
+                    Navn = reader.GetString(0),
+                    Antal = reader.GetInt32(1),
+                    Minimumsbeholding = reader.GetInt32(2),
+                    Maksimumsbeholdning = reader.GetInt32(3),
+                    Maal = reader.GetString(4),
+                    Vaegt = reader.GetInt32(5),
+                    Lokation = reader.GetString(6),
+                    MaterialeID = reader.GetInt32(7),
+                    MaterialeType = reader.GetString(8),
+
+
+                };
+
+                raavareListe.Add(raavare);
+            }
+
+            return raavareListe;
+
+
+
+
+        }
 
         public void ExportToCsv(int userinput, string filePath)
         {
@@ -318,7 +356,7 @@ namespace LagerApp_final_
 				};
 			}
 
-			return null; // Return null if no product is found.
+			return null; // Return null hvis intet er fundet.
 		}
 	}
 

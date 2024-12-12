@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LagerApp_final_;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace LagerApp_final_
 {
@@ -46,6 +47,13 @@ namespace LagerApp_final_
             Program.Database.AddRaavare(nyRaavare);
 
             MessageBox.Show("Det indtastede blev tilføjet");
+        }
+
+        public void buttonRaavareSearch_Click(object sender, EventArgs e)
+        {
+            int RaavareID = int.Parse(textBoxRaavare.Text);
+            var raavreListe = Program.Database.ReadRaavare(RaavareID);
+            dataGridViewRaavare.DataSource = raavreListe;
         }
     }
 }
