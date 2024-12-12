@@ -129,15 +129,15 @@ namespace LagerApp_final_
 			connection.Open();
 
 			var query = @"UPDATE Raavare
-          SET MaterialeID = @MaterialeID, 
-              Navn = @Navn, 
+          SET Navn = @Navn, 
               Antal = @Antal, 
               Vaegt = @Vaegt, 
               Maal = @Maal, 
               Maksimumsbeholdning = @Maksimumsbeholdning, 
               Minimumsbeholdning = @Minimumsbeholdning, 
               Lokation = @Lokation, 
-              MaterialeType = @MaterialeType";
+              MaterialeType = @MaterialeType
+              WHERE MaterialeID = @MaterialeID";
 
 			using var command = new SqlCommand(query, connection);
 			command.Parameters.AddWithValue("@MaterialeID", raavare.MaterialeID);
@@ -285,7 +285,7 @@ namespace LagerApp_final_
                 {
                     Navn = reader.GetString(0),
                     Antal = reader.GetInt32(1),
-                    Minimumsbeholding = reader.GetInt32(2),
+                    Minimumsbeholdning = reader.GetInt32(2),
                     Maksimumsbeholdning = reader.GetInt32(3),
                     Maal = reader.GetString(4),
                     Vaegt = reader.GetInt32(5),
