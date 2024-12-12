@@ -49,6 +49,7 @@
             label8 = new Label();
             label9 = new Label();
             pictureBox1 = new PictureBox();
+            buttonBack = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -216,11 +217,22 @@
             pictureBox1.TabIndex = 23;
             pictureBox1.TabStop = false;
             // 
+            // buttonBack
+            // 
+            buttonBack.Location = new Point(60, 377);
+            buttonBack.Name = "buttonBack";
+            buttonBack.Size = new Size(112, 34);
+            buttonBack.TabIndex = 24;
+            buttonBack.Text = "Tilbage";
+            buttonBack.UseVisualStyleBackColor = true;
+            buttonBack.Click += buttonBack_Click;
+            // 
             // RåvarerMenu
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(buttonBack);
             Controls.Add(pictureBox1);
             Controls.Add(label9);
             Controls.Add(label8);
@@ -270,5 +282,6 @@
         private Label label8;
         private Label label9;
         private PictureBox pictureBox1;
+        private Button buttonBack;
     }
 }

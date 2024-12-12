@@ -13,10 +13,11 @@ namespace LagerApp_final_
 {
     public partial class OrdreMenu : Form
     {
+        private MainMenu mainMenu; // declare form
         public OrdreMenu()
         {
             InitializeComponent();
-            
+
 
         }
 
@@ -27,5 +28,11 @@ namespace LagerApp_final_
             dataGridViewOrdre.DataSource = ordreListe;
         }
 
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            mainMenu = new MainMenu(); // creating new form
+            mainMenu.Show(); //shows Main menu form after pressing login
+            this.Hide(); // hides this form
+        }
     }
 }
