@@ -53,6 +53,7 @@
             dataGridViewRaavare = new DataGridView();
             buttonRaavareSearch = new Button();
             textBoxRaavare = new TextBox();
+            buttonBack = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewRaavare).BeginInit();
             SuspendLayout();
@@ -274,6 +275,15 @@
             textBoxRaavare.Name = "textBoxRaavare";
             textBoxRaavare.Size = new Size(100, 23);
             textBoxRaavare.TabIndex = 27;
+            // buttonBack
+            // 
+            buttonBack.Location = new Point(60, 377);
+            buttonBack.Name = "buttonBack";
+            buttonBack.Size = new Size(112, 34);
+            buttonBack.TabIndex = 24;
+            buttonBack.Text = "Tilbage";
+            buttonBack.UseVisualStyleBackColor = true;
+            buttonBack.Click += buttonBack_Click;
             // 
             // RåvarerMenu
             // 
@@ -284,6 +294,8 @@
             Controls.Add(buttonRaavareSearch);
             Controls.Add(dataGridViewRaavare);
             Controls.Add(label10);
+            ClientSize = new Size(800, 450);
+            Controls.Add(buttonBack);
             Controls.Add(pictureBox1);
             Controls.Add(label9);
             Controls.Add(label8);
@@ -339,5 +351,6 @@
         private DataGridView dataGridViewRaavare;
         private Button buttonRaavareSearch;
         private TextBox textBoxRaavare;
+        private Button buttonBack;
     }
 }

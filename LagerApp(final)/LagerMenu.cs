@@ -15,6 +15,7 @@ namespace LagerApp_final_
 {
     public partial class LagerMenu : Form
     {
+        private MainMenu mainMenu; // declare form
         public LagerMenu()
         {
             InitializeComponent();
@@ -205,6 +206,13 @@ namespace LagerApp_final_
             Program.Database.ExportToCsv(produktID, filePath);
 
             MessageBox.Show($"Data has been exported to {filePath}", "Export Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            mainMenu = new MainMenu(); // creating new form
+            mainMenu.Show(); //shows Main menu form after pressing login
+            this.Hide(); // hides this form
         }
     }
 }

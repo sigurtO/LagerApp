@@ -14,6 +14,7 @@ namespace LagerApp_final_
 {
     public partial class RåvarerMenu : Form
     {
+        private MainMenu mainMenu; // declare form
         public RåvarerMenu()
         {
             InitializeComponent();
@@ -54,6 +55,11 @@ namespace LagerApp_final_
             int RaavareID = int.Parse(textBoxRaavare.Text);
             var raavreListe = Program.Database.ReadRaavare(RaavareID);
             dataGridViewRaavare.DataSource = raavreListe;
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            mainMenu = new MainMenu(); // creating new form
+            mainMenu.Show(); //shows Main menu form after pressing login
+            this.Hide(); // hides this form
         }
     }
 }

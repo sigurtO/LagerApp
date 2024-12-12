@@ -31,12 +31,13 @@
             buttonLagerStyring = new Button();
             Ordrehandle = new Button();
             buttonRaavarer = new Button();
+            buttonBack = new Button();
             SuspendLayout();
             // 
             // buttonLagerStyring
             // 
             buttonLagerStyring.Location = new Point(432, 204);
-            buttonLagerStyring.Margin = new Padding(4, 4, 4, 4);
+            buttonLagerStyring.Margin = new Padding(4);
             buttonLagerStyring.Name = "buttonLagerStyring";
             buttonLagerStyring.Size = new Size(165, 36);
             buttonLagerStyring.TabIndex = 0;
@@ -47,7 +48,7 @@
             // Ordrehandle
             // 
             Ordrehandle.Location = new Point(432, 322);
-            Ordrehandle.Margin = new Padding(4, 4, 4, 4);
+            Ordrehandle.Margin = new Padding(4);
             Ordrehandle.Name = "Ordrehandle";
             Ordrehandle.Size = new Size(165, 36);
             Ordrehandle.TabIndex = 1;
@@ -66,15 +67,26 @@
             buttonRaavarer.UseVisualStyleBackColor = true;
             buttonRaavarer.Click += button1_Click;
             // 
+            // buttonBack
+            // 
+            buttonBack.Location = new Point(38, 503);
+            buttonBack.Name = "buttonBack";
+            buttonBack.Size = new Size(112, 34);
+            buttonBack.TabIndex = 3;
+            buttonBack.Text = "Tilbage";
+            buttonBack.UseVisualStyleBackColor = true;
+            buttonBack.Click += buttonBack_Click;
+            // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1000, 562);
+            Controls.Add(buttonBack);
             Controls.Add(buttonRaavarer);
             Controls.Add(Ordrehandle);
             Controls.Add(buttonLagerStyring);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "MainMenu";
             Text = "MainMenu";
             ResumeLayout(false);
@@ -85,5 +97,6 @@
         private Button buttonLagerStyring;
         private Button Ordrehandle;
         private Button buttonRaavarer;
+        private Button buttonBack;
     }
 }

@@ -12,6 +12,7 @@ namespace LagerApp_final_
 {
     public partial class MainMenu : Form
     {
+        private Form1 form1;
         private LagerMenu lagerMenu;
         private OrdreMenu ordreMenu;
         private RåvarerMenu råvarerMenu;
@@ -40,6 +41,13 @@ namespace LagerApp_final_
             råvarerMenu = new RåvarerMenu();
             råvarerMenu.Show();
             this.Hide();
+        }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            form1 = new Form1(); // creating new form
+            form1.Show(); //shows Main menu form after pressing login
+            this.Hide(); // hides this form
         }
     }
 }
