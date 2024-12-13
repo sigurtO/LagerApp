@@ -214,5 +214,23 @@ namespace LagerApp_final_
             mainMenu.Show(); //shows Main menu form after pressing login
             this.Hide(); // hides this form
         }
+
+        private void buttonFjernProdukt_Click(object sender, EventArgs e)
+        {
+
+
+            if (int.TryParse(textBoxFjernProdukt.Text, out int produktID))
+            {
+                Program.Database.DeleteProdukt(produktID); 
+            }
+            else
+            {
+                MessageBox.Show("Indtast et gyldigt ID!", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+
+
+        }
     }
 }
