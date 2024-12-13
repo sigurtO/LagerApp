@@ -9,8 +9,6 @@ namespace LagerApp_final_
     public class Ordre
     {
 
-        public class OrdreLager
-        {
             public int OrdreId { get; set; }
             public string Dato { get; set; }
             public string Leverandoer { get; set; }
@@ -19,7 +17,7 @@ namespace LagerApp_final_
             public string KundeNavn { get; set; }
 
             // Konstruktor
-            public OrdreLager(int ordreId, string dato, string leverandoer, string info, int kundeID, string kundeNavn)
+            public Ordre(int ordreId, string dato, string leverandoer, string info, int kundeID, string kundeNavn)
             {
                 OrdreId = ordreId;
                 Dato = dato;
@@ -30,8 +28,7 @@ namespace LagerApp_final_
             }
 
             // Parameterløs konstruktor (hvis påkrævet)
-            public OrdreLager() { }
+            public Ordre() { }
         }
     }
-}
 

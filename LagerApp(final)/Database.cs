@@ -197,9 +197,9 @@ namespace LagerApp_final_
         }
 
 
-        public List<OrdreLager> ReadOrdre(int userInput)
+        public List<Ordre> ReadOrdre(int userInput)
         {
-            var ordreliste = new List<OrdreLager>();
+            var ordreliste = new List<Ordre>();
 
             // Connection to SQL
             using var connection = new SqlConnection(_connectionString);
@@ -215,7 +215,7 @@ namespace LagerApp_final_
             using var reader = command.ExecuteReader();
             while (reader.Read())
             {
-                var ordre = new OrdreLager
+                var ordre = new Ordre
                 {
                     OrdreId = reader.GetInt32(0),        // OrdreID
                     KundeID = reader.GetInt32(1),        // KundeID
