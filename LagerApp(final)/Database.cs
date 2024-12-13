@@ -60,7 +60,7 @@ namespace LagerApp_final_
             using var command = new SqlCommand("INSERT INTO Raavare (Navn, Antal, Minimumsbeholdning, Maksimumsbeholdning, Maal, Vaegt, Lokation, MaterialeID, MaterialeType) " +
             "VALUES (@Navn, @Antal, @Minimumsbeholdning, @Maksimumsbeholdning, @Maal, @Vaegt, @Lokation, @MaterialeID, @MaterialeType)", connection);
 
-           
+
             //Dette er for at forhindre SQL Injections//
             command.Parameters.AddWithValue("@Navn", raavare.Navn);
             command.Parameters.AddWithValue("@Antal", raavare.Antal);
@@ -81,12 +81,12 @@ namespace LagerApp_final_
 
 
 
-		public void SaveUpdatedProdukt(Produkter produkt)
-		{
-			using var connection = new SqlConnection(_connectionString);
-			connection.Open();
+        public void SaveUpdatedProdukt(Produkter produkt)
+        {
+            using var connection = new SqlConnection(_connectionString);
+            connection.Open();
 
-			var query = @"UPDATE Produkter
+            var query = @"UPDATE Produkter
                   SET Navn = @Navn, 
                       SalgsID = @SalgsID, 
                       Antal = @Antal, 
@@ -102,31 +102,31 @@ namespace LagerApp_final_
                       SalgsPris = @SalgsPris
                   WHERE ProduktID = @ProduktID";
 
-			using var command = new SqlCommand(query, connection);
-			command.Parameters.AddWithValue("@ProduktID", produkt.ProduktID);
-			command.Parameters.AddWithValue("@Navn", produkt.Navn ?? (object)DBNull.Value);
-			command.Parameters.AddWithValue("@SalgsID", produkt.SalgsID);
-			command.Parameters.AddWithValue("@Antal", produkt.Antal);
-			command.Parameters.AddWithValue("@Vaegt", produkt.Vaegt ?? (object)DBNull.Value);
-			command.Parameters.AddWithValue("@Maal", produkt.Maal ?? (object)DBNull.Value);
-			command.Parameters.AddWithValue("@Beskrivelse", produkt.Beskrivelse ?? (object)DBNull.Value);
-			command.Parameters.AddWithValue("@Dato", produkt.Dato ?? (object)DBNull.Value);
-			command.Parameters.AddWithValue("@Minimumsbeholdning", produkt.Minimumsbeholdning);
-			command.Parameters.AddWithValue("@Maksimumsbeholdning", produkt.Maksimumsbeholdning);
-			command.Parameters.AddWithValue("@Moebeltype", produkt.Moebeltype ?? (object)DBNull.Value);
-			command.Parameters.AddWithValue("@Materialer", produkt.Materialer ?? (object)DBNull.Value);
-			command.Parameters.AddWithValue("@Kostpris", produkt.Kostpris);
-			command.Parameters.AddWithValue("@SalgsPris", produkt.SalgsPris);
+            using var command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ProduktID", produkt.ProduktID);
+            command.Parameters.AddWithValue("@Navn", produkt.Navn ?? (object)DBNull.Value);
+            command.Parameters.AddWithValue("@SalgsID", produkt.SalgsID);
+            command.Parameters.AddWithValue("@Antal", produkt.Antal);
+            command.Parameters.AddWithValue("@Vaegt", produkt.Vaegt ?? (object)DBNull.Value);
+            command.Parameters.AddWithValue("@Maal", produkt.Maal ?? (object)DBNull.Value);
+            command.Parameters.AddWithValue("@Beskrivelse", produkt.Beskrivelse ?? (object)DBNull.Value);
+            command.Parameters.AddWithValue("@Dato", produkt.Dato ?? (object)DBNull.Value);
+            command.Parameters.AddWithValue("@Minimumsbeholdning", produkt.Minimumsbeholdning);
+            command.Parameters.AddWithValue("@Maksimumsbeholdning", produkt.Maksimumsbeholdning);
+            command.Parameters.AddWithValue("@Moebeltype", produkt.Moebeltype ?? (object)DBNull.Value);
+            command.Parameters.AddWithValue("@Materialer", produkt.Materialer ?? (object)DBNull.Value);
+            command.Parameters.AddWithValue("@Kostpris", produkt.Kostpris);
+            command.Parameters.AddWithValue("@SalgsPris", produkt.SalgsPris);
 
-			command.ExecuteNonQuery();
-
-
-		}
+            command.ExecuteNonQuery();
 
 
+        }
 
-		//read
-		public MedarbejderLogin ReadWorker(string username, string password)
+
+
+        //read
+        public MedarbejderLogin ReadWorker(string username, string password)
         {
             string MedarbejderID = null;
             string Password = null;
@@ -192,7 +192,7 @@ namespace LagerApp_final_
 
         public List<Produkter> ReadProdukt(int userinput)
         {
-            
+
             var produktListe = new List<Produkter>();
 
             using var connection = new SqlConnection(_connectionString);
@@ -227,11 +227,13 @@ namespace LagerApp_final_
                 produktListe.Add(produkt);
             }
 
-                return produktListe;
+            return produktListe;
 
 
 
         }
+
+
 
         public List<Raavare> ReadRaavare(int userinput)
         {
@@ -320,10 +322,40 @@ namespace LagerApp_final_
         }
 
 
+        public void DeleteProdukt(int produktID)
+        {
+            try
+            {
+                using var connection = new SqlConnection(_connectionString);
+                connection.Open();
 
+                using var command = new SqlCommand("DELETE FROM Produkter WHERE ProduktID = @ProduktID", connection);
+                command.Parameters.AddWithValue("@ProduktID", produktID);
 
+                // Udfør DELETE og få antal rækker påvirket
+                int rowsAffected = command.ExecuteNonQuery();
 
+                if (rowsAffected > 0)
+                {
+                   MessageBox.Show("Posten blev slettet!");
+                }
+                else
+                {
+                    MessageBox.Show("Ingen post fundet med det ID.");
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Databasefejl: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"En fejl opstod: {ex.Message}");
+            }
+            
+        }
 
+       
 
         public Produkter GetProduktById(int produktId)
 		{
