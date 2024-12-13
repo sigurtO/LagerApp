@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlTypes;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using static LagerApp_final_.Ordre;
@@ -197,13 +200,17 @@ namespace LagerApp_final_
         public List<OrdreLager> ReadOrdre(int userInput)
         {
             var ordreliste = new List<OrdreLager>();
-            //Connection til sql
+
+            // Connection to SQL
             using var connection = new SqlConnection(_connectionString);
             connection.Open();
+            using var command = new SqlCommand(
+            "Select Ordre.OrdreID, Kunde.KundeID, Kunde.Navn, Ordre.Info, Ordre.Dato, Ordre.Levandor " +
+            "FROM Ordre " +
+            "INNER JOIN Kunde ON  Ordre.KundeID = Kunde.KundeID WHERE Kunde.KundeID = @KundeID", connection);
 
-            //det her gør man får at indgå sql injections og selve koden er det jeg beder vores database om at finde
-            using var command = new SqlCommand("SELECT * FROM Ordre where OrdreID = @OrdreID", connection);
-            command.Parameters.AddWithValue("@OrdreID", userInput);
+            // Use parameterized query to prevent SQL injection
+            command.Parameters.AddWithValue("@KundeID", userInput);
 
             using var reader = command.ExecuteReader();
             while (reader.Read())
@@ -211,10 +218,11 @@ namespace LagerApp_final_
                 var ordre = new OrdreLager
                 {
                     OrdreId = reader.GetInt32(0),        // OrdreID
-                    Info = reader.GetString(1),         // Info
-                    Dato = reader.GetString(2), // Dato (konverteres til streng)
-                    KundeID = reader.GetInt32(3),       // KundeID
-                    Leverandoer = reader.GetString(4)    // Leverandør
+                    KundeID = reader.GetInt32(1),        // KundeID
+                    KundeNavn = reader.GetString(2),     // Kunde Name
+                    Info = reader.GetString(3),          // Info
+                    Dato = reader.GetString(4),          // Dato (converted to string)
+                    Leverandoer = reader.GetString(5)    // Leverandør
                 };
 
                 ordreliste.Add(ordre);
