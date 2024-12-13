@@ -433,7 +433,43 @@ namespace LagerApp_final_
 		}
 
 
-		public Raavare GetRaavareById(int materialeId)
+
+        public void DeleteRaavare(int materialeID)
+        {
+            try
+            {
+                using var connection = new SqlConnection(_connectionString);
+                connection.Open();
+
+                using var command = new SqlCommand("DELETE FROM Raavare WHERE MaterialeID = @MaterialeID", connection);
+                command.Parameters.AddWithValue("@MaterialeID", materialeID);
+
+                // Udfør DELETE og få antal rækker påvirket
+                int rowsAffected1 = command.ExecuteNonQuery();
+
+                if (rowsAffected1 > 0)
+                {
+                    MessageBox.Show("Råvare blev slettet!");
+                }
+                else
+                {
+                    MessageBox.Show("Ingen råvare fundet med det ID.");
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Databasefejl: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"En fejl opstod: {ex.Message}");
+            }
+
+        }
+
+
+
+        public Raavare GetRaavareById(int materialeId)
 		{
 			using var connection = new SqlConnection(_connectionString);
 			connection.Open();

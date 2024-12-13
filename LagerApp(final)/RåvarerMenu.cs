@@ -113,6 +113,18 @@ namespace LagerApp_final_
                 MessageBox.Show($"An error occurred: {ex.Message}");
             }
         }
+
+        private void buttonFjernraavarer_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(textBoxFjernRaavare.Text, out int materialeID))
+            {
+                Program.Database.DeleteRaavare(materialeID);
+            }
+            else
+            {
+                MessageBox.Show("Indtast et gyldigt ID!", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
 
