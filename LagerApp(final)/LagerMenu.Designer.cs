@@ -372,7 +372,7 @@
             // 
             // buttonBack
             // 
-            buttonBack.Location = new Point(18, 305);
+            buttonBack.Location = new Point(11, 407);
             buttonBack.Margin = new Padding(2);
             buttonBack.Name = "buttonBack";
             buttonBack.Size = new Size(89, 27);
