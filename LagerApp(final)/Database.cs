@@ -303,7 +303,47 @@ namespace LagerApp_final_
 
         }
 
+        public List<Produkter> ReadAllProdukt()
+        {
 
+            var produktListe = new List<Produkter>();
+
+            using var connection = new SqlConnection(_connectionString);
+            connection.Open();
+            
+
+            using var command = new SqlCommand("SELECT * FROM Produkter ", connection);
+           
+            using var reader = command.ExecuteReader();
+
+
+            while (reader.Read())
+            {
+                var produkt = new Produkter
+                {
+                    ProduktID = reader.GetInt32(0),
+                    Navn = reader.GetString(1),
+                    SalgsID = reader.GetInt32(2),
+                    Antal = reader.GetInt32(3),
+                    Vaegt = reader.GetString(4),
+                    Maal = reader.GetString(5),
+                    Beskrivelse = reader.GetString(6),
+                    Dato = reader.GetString(7),
+                    Minimumsbeholdning = reader.GetInt32(8),
+                    Maksimumsbeholdning = reader.GetInt32(9),
+                    Moebeltype = reader.GetString(10),
+                    Materialer = reader.GetString(11),
+                    Kostpris = reader.GetInt32(12),
+                    SalgsPris = reader.GetInt32(13),
+
+                };
+
+                produktListe.Add(produkt);
+            }
+
+            return produktListe;
+
+        }
 
         public List<Raavare> ReadRaavare(int userinput)
         {
@@ -461,6 +501,8 @@ namespace LagerApp_final_
 			return null; // Return null hvis intet er fundet.
 		}
 
+
+        
 
 
         public void DeleteRaavare(int materialeID)
