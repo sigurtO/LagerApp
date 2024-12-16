@@ -358,7 +358,7 @@
             // dataGridViewProdukter
             // 
             dataGridViewProdukter.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewProdukter.Location = new Point(310, 165);
+            dataGridViewProdukter.Location = new Point(310, 173);
             dataGridViewProdukter.Name = "dataGridViewProdukter";
             dataGridViewProdukter.RowHeadersWidth = 51;
             dataGridViewProdukter.Size = new Size(286, 160);
@@ -389,7 +389,7 @@
             // buttonBack
             // 
             buttonBack.Location = new Point(18, 305);
-            buttonBack.Margin = new Padding(2, 2, 2, 2);
+            buttonBack.Margin = new Padding(2);
             buttonBack.Name = "buttonBack";
             buttonBack.Size = new Size(78, 20);
             buttonBack.TabIndex = 37;
@@ -427,7 +427,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(700, 338);
+            ClientSize = new Size(610, 339);
             Controls.Add(label16);
             Controls.Add(textBoxFjernProdukt);
             Controls.Add(buttonFjernProdukt);

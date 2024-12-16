@@ -19,6 +19,12 @@ namespace LagerApp_final_
         public LagerMenu()
         {
             InitializeComponent();
+
+            // Antag at du allerede har en metode, der læser data fra databasen
+            var produktListe = Program.Database.ReadAllProdukt(); // Hent data fra databasen
+            dataGridViewProdukter.DataSource = produktListe; // Bind data til DataGridView
+            
+
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -119,6 +125,7 @@ namespace LagerApp_final_
 
         public void buttonProductSearch_Click(object sender, EventArgs e)
         {
+
             int ProduktID = int.Parse(textBoxProduktsøgning.Text);
             var produktListe = Program.Database.ReadProdukt(ProduktID);
             dataGridViewProdukter.DataSource = produktListe;
@@ -221,7 +228,7 @@ namespace LagerApp_final_
 
             if (int.TryParse(textBoxFjernProdukt.Text, out int produktID))
             {
-                Program.Database.DeleteProdukt(produktID); 
+                Program.Database.DeleteProdukt(produktID);
             }
             else
             {
@@ -232,5 +239,6 @@ namespace LagerApp_final_
 
 
         }
+
     }
 }
