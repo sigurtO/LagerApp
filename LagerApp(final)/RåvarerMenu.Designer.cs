@@ -264,6 +264,7 @@
             dataGridViewRaavare.RowHeadersWidth = 51;
             dataGridViewRaavare.Size = new Size(342, 250);
             dataGridViewRaavare.TabIndex = 25;
+            dataGridViewRaavare.CellContentClick += dataGridViewRaavare_CellContentClick;
             // 
             // buttonRaavareSearch
             // 
