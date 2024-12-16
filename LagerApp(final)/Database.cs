@@ -197,6 +197,35 @@ namespace LagerApp_final_
         }
 
 
+        //Read Kunde
+        public List<Ordre> ReadAllKunde()
+        {
+            var ordreliste = new List<Ordre>();
+
+            // Connection to SQL
+            using var connection = new SqlConnection(_connectionString);
+            connection.Open();
+            using var command = new SqlCommand(
+            "Select * From Kunde", connection);
+
+
+
+            using var reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                var ordre = new Ordre
+                {
+                    KundeID = reader.GetInt32(0),        // OrdreID
+                    KundeNavn = reader.GetString(1),     // Kunde Name
+                };
+
+                ordreliste.Add(ordre);
+            }
+
+            return ordreliste;
+        }
+
+        //Read Ordre (inkl Kunde)
         public List<Ordre> ReadOrdre(int userInput)
         {
             var ordreliste = new List<Ordre>();

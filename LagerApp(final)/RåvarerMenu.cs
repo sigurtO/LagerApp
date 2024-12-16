@@ -125,6 +125,11 @@ namespace LagerApp_final_
                 MessageBox.Show("Indtast et gyldigt ID!", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void dataGridViewRaavare_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
 

@@ -71,13 +71,14 @@
             dataGridViewOrdre.Margin = new Padding(3, 4, 3, 4);
             dataGridViewOrdre.Name = "dataGridViewOrdre";
             dataGridViewOrdre.RowHeadersWidth = 62;
-            dataGridViewOrdre.Size = new Size(392, 378);
+            dataGridViewOrdre.Size = new Size(569, 378);
             dataGridViewOrdre.TabIndex = 4;
+            dataGridViewOrdre.CellContentClick += dataGridViewOrdre_CellContentClick;
             // 
             // buttonBack
             // 
             buttonBack.Location = new Point(49, 400);
-            buttonBack.Margin = new Padding(2, 2, 2, 2);
+            buttonBack.Margin = new Padding(2);
             buttonBack.Name = "buttonBack";
             buttonBack.Size = new Size(90, 27);
             buttonBack.TabIndex = 5;
@@ -89,14 +90,16 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(982, 453);
             Controls.Add(buttonBack);
             Controls.Add(dataGridViewOrdre);
             Controls.Add(buttonOrdreSearch);
             Controls.Add(label1);
             Controls.Add(textBox1);
             Margin = new Padding(3, 2, 3, 2);
+            MinimumSize = new Size(1000, 500);
             Name = "OrdreMenu";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "OrdreMenu";
             ((System.ComponentModel.ISupportInitialize)dataGridViewOrdre).EndInit();
             ResumeLayout(false);

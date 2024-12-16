@@ -221,7 +221,7 @@ namespace LagerApp_final_
 
             if (int.TryParse(textBoxFjernProdukt.Text, out int produktID))
             {
-                Program.Database.DeleteProdukt(produktID); 
+                Program.Database.DeleteProdukt(produktID);
             }
             else
             {
@@ -230,6 +230,11 @@ namespace LagerApp_final_
 
 
 
+
+        }
+
+        private void LagerMenu_Load(object sender, EventArgs e)
+        {
 
         }
     }
