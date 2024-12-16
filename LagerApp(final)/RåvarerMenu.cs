@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.DirectoryServices.ActiveDirectory;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LagerApp_final_;
+using Microsoft.Data.SqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace LagerApp_final_
@@ -18,7 +20,11 @@ namespace LagerApp_final_
         public RåvarerMenu()
         {
             InitializeComponent();
+            var vaareLise = Program.Database.ReadAllRaavare();
+            dataGridViewRaavare.DataSource = vaareLise;
         }
+
+
 
         private void textBox7_TextChanged(object sender, EventArgs e)
         {
@@ -128,7 +134,7 @@ namespace LagerApp_final_
 
         private void dataGridViewRaavare_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
     }
 }

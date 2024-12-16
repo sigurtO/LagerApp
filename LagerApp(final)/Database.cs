@@ -345,6 +345,43 @@ namespace LagerApp_final_
 
         }
 
+        //ReadAllRaavare
+        public List<Raavare> ReadAllRaavare()
+        {
+
+            var raavareListe = new List<Raavare>();
+            using var connection = new SqlConnection(_connectionString);
+            connection.Open();
+
+
+            using var command = new SqlCommand("SELECT * FROM Raavare", connection);
+
+            using var reader = command.ExecuteReader();
+
+
+            while (reader.Read())
+            {
+                var raavare = new Raavare
+                {
+                    Navn = reader.GetString(0),
+                    Antal = reader.GetInt32(1),
+                    Minimumsbeholdning = reader.GetInt32(2),
+                    Maksimumsbeholdning = reader.GetInt32(3),
+                    Maal = reader.GetString(4),
+                    Vaegt = reader.GetInt32(5),
+                    Lokation = reader.GetString(6),
+                    MaterialeID = reader.GetInt32(7),
+                    MaterialeType = reader.GetString(8),
+                };
+
+                raavareListe.Add(raavare);
+            }
+
+            return raavareListe;
+
+        }
+
+        //readraavare
         public List<Raavare> ReadRaavare(int userinput)
         {
 
