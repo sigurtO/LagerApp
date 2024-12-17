@@ -39,11 +39,10 @@
             // 
             // buttonLagerStyring
             // 
-            buttonLagerStyring.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            buttonLagerStyring.Location = new Point(432, 204);
-            buttonLagerStyring.Margin = new Padding(4);
+            buttonLagerStyring.Anchor = AnchorStyles.Top;
+            buttonLagerStyring.Location = new Point(308, 157);
             buttonLagerStyring.Name = "buttonLagerStyring";
-            buttonLagerStyring.Size = new Size(165, 36);
+            buttonLagerStyring.Size = new Size(210, 60);
             buttonLagerStyring.TabIndex = 0;
             buttonLagerStyring.Text = "Lagerstyring";
             buttonLagerStyring.UseVisualStyleBackColor = true;
@@ -51,12 +50,11 @@
             // 
             // Ordrehandle
             // 
-            Ordrehandle.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            Ordrehandle.Anchor = AnchorStyles.Top;
             Ordrehandle.BackColor = Color.FromArgb(255, 161, 0);
-            Ordrehandle.Location = new Point(432, 322);
-            Ordrehandle.Margin = new Padding(4);
+            Ordrehandle.Location = new Point(308, 289);
             Ordrehandle.Name = "Ordrehandle";
-            Ordrehandle.Size = new Size(165, 36);
+            Ordrehandle.Size = new Size(210, 60);
             Ordrehandle.TabIndex = 1;
             Ordrehandle.Text = "Ordrehåndtering";
             Ordrehandle.UseVisualStyleBackColor = false;
@@ -64,12 +62,11 @@
             // 
             // buttonRaavarer
             // 
-            buttonRaavarer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            buttonRaavarer.Anchor = AnchorStyles.Top;
             buttonRaavarer.BackColor = Color.LightGray;
-            buttonRaavarer.Location = new Point(432, 265);
-            buttonRaavarer.Margin = new Padding(4);
+            buttonRaavarer.Location = new Point(308, 223);
             buttonRaavarer.Name = "buttonRaavarer";
-            buttonRaavarer.Size = new Size(165, 36);
+            buttonRaavarer.Size = new Size(210, 60);
             buttonRaavarer.TabIndex = 2;
             buttonRaavarer.Text = "Råvarer";
             buttonRaavarer.UseVisualStyleBackColor = false;
@@ -78,9 +75,10 @@
             // buttonBack
             // 
             buttonBack.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            buttonBack.Location = new Point(39, 552);
+            buttonBack.Location = new Point(31, 442);
+            buttonBack.Margin = new Padding(2);
             buttonBack.Name = "buttonBack";
-            buttonBack.Size = new Size(160, 56);
+            buttonBack.Size = new Size(128, 45);
             buttonBack.TabIndex = 3;
             buttonBack.Text = "Tilbage";
             buttonBack.UseVisualStyleBackColor = true;
@@ -90,26 +88,26 @@
             // 
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(916, 13);
-            pictureBox1.Margin = new Padding(2, 4, 2, 4);
+            pictureBox1.Location = new Point(733, 10);
+            pictureBox1.Margin = new Padding(2, 3, 2, 3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(101, 104);
+            pictureBox1.Size = new Size(81, 83);
             pictureBox1.TabIndex = 24;
             pictureBox1.TabStop = false;
             // 
             // MainMenu
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1028, 644);
+            ClientSize = new Size(822, 515);
             Controls.Add(pictureBox1);
             Controls.Add(buttonBack);
             Controls.Add(buttonRaavarer);
             Controls.Add(Ordrehandle);
             Controls.Add(buttonLagerStyring);
-            Margin = new Padding(4);
             Name = "MainMenu";
             Text = "MainMenu";
+            Load += MainMenu_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }

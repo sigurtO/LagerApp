@@ -49,5 +49,10 @@ namespace LagerApp_final_
             form1.Show(); //shows Main menu form after pressing login
             this.Hide(); // hides this form
         }
+
+        private void MainMenu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
