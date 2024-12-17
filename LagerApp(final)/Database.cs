@@ -56,7 +56,7 @@ namespace LagerApp_final_
             command.ExecuteNonQuery();
         }
 
-        public void AddRaavare(Raavare raavare)
+        public void AddRaavare(Raavare userInput)
         {
             using var connection = new SqlConnection(_connectionString);
             connection.Open();
@@ -65,15 +65,15 @@ namespace LagerApp_final_
 
 
             //Dette er for at forhindre SQL Injections//
-            command.Parameters.AddWithValue("@Navn", raavare.Navn);
-            command.Parameters.AddWithValue("@Antal", raavare.Antal);
-            command.Parameters.AddWithValue("@Minimumsbeholdning", raavare.Minimumsbeholdning);
-            command.Parameters.AddWithValue("@Maksimumsbeholdning", raavare.Maksimumsbeholdning);
-            command.Parameters.AddWithValue("@Maal", raavare.Maal);
-            command.Parameters.AddWithValue("@Vaegt", raavare.Vaegt);
-            command.Parameters.AddWithValue("@Lokation", raavare.Lokation);
-            command.Parameters.AddWithValue("@MaterialeID", raavare.MaterialeID);
-            command.Parameters.AddWithValue("@MaterialeType", raavare.MaterialeType);
+            command.Parameters.AddWithValue("@Navn", userInput.Navn);
+            command.Parameters.AddWithValue("@Antal", userInput.Antal);
+            command.Parameters.AddWithValue("@Minimumsbeholdning", userInput.Minimumsbeholdning);
+            command.Parameters.AddWithValue("@Maksimumsbeholdning", userInput.Maksimumsbeholdning);
+            command.Parameters.AddWithValue("@Maal", userInput.Maal);
+            command.Parameters.AddWithValue("@Vaegt", userInput.Vaegt);
+            command.Parameters.AddWithValue("@Lokation", userInput.Lokation);
+            command.Parameters.AddWithValue("@MaterialeID", userInput.MaterialeID);
+            command.Parameters.AddWithValue("@MaterialeType", userInput.MaterialeType);
 
 
             command.ExecuteNonQuery();

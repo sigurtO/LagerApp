@@ -48,26 +48,26 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(61, 132);
+            textBox1.Location = new Point(32, 129);
             textBox1.Margin = new Padding(4, 2, 4, 2);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(155, 31);
+            textBox1.Size = new Size(155, 23);
             textBox1.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(61, 105);
+            label1.Location = new Point(32, 102);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(99, 25);
+            label1.Size = new Size(64, 15);
             label1.TabIndex = 1;
             label1.Text = "Søg Kunde";
             // 
             // buttonOrdreSearch
             // 
             buttonOrdreSearch.BackColor = Color.FromArgb(255, 161, 0);
-            buttonOrdreSearch.Location = new Point(61, 178);
+            buttonOrdreSearch.Location = new Point(32, 178);
             buttonOrdreSearch.Margin = new Padding(4, 2, 4, 2);
             buttonOrdreSearch.Name = "buttonOrdreSearch";
             buttonOrdreSearch.Size = new Size(118, 38);
@@ -111,40 +111,35 @@
             pictureBox1.TabIndex = 24;
             pictureBox1.TabStop = false;
             // 
-            // OrdreMenu
-            // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1028, 644);
-            Controls.Add(pictureBox1);
             // buttonUpdate
             // 
-            buttonUpdate.Location = new Point(183, 106);
+            buttonUpdate.BackColor = Color.FromArgb(255, 161, 0);
+            buttonUpdate.Location = new Point(182, 178);
             buttonUpdate.Margin = new Padding(3, 2, 3, 2);
             buttonUpdate.Name = "buttonUpdate";
-            buttonUpdate.Size = new Size(82, 22);
+            buttonUpdate.Size = new Size(118, 38);
             buttonUpdate.TabIndex = 6;
             buttonUpdate.Text = "Update";
-            buttonUpdate.UseVisualStyleBackColor = true;
+            buttonUpdate.UseVisualStyleBackColor = false;
             buttonUpdate.Click += buttonUpdate_Click;
             // 
             // textBoxInfo
             // 
-            textBoxInfo.Location = new Point(35, 175);
+            textBoxInfo.Location = new Point(34, 275);
             textBoxInfo.Name = "textBoxInfo";
             textBoxInfo.Size = new Size(69, 23);
             textBoxInfo.TabIndex = 7;
             // 
             // textBoxDato
             // 
-            textBoxDato.Location = new Point(223, 175);
+            textBoxDato.Location = new Point(213, 275);
             textBoxDato.Name = "textBoxDato";
             textBoxDato.Size = new Size(69, 23);
             textBoxDato.TabIndex = 8;
             // 
             // textBoxLev
             // 
-            textBoxLev.Location = new Point(128, 175);
+            textBoxLev.Location = new Point(122, 275);
             textBoxLev.Name = "textBoxLev";
             textBoxLev.Size = new Size(69, 23);
             textBoxLev.TabIndex = 9;
@@ -152,7 +147,7 @@
             // Info
             // 
             Info.AutoSize = true;
-            Info.Location = new Point(43, 151);
+            Info.Location = new Point(42, 251);
             Info.Name = "Info";
             Info.Size = new Size(28, 15);
             Info.TabIndex = 10;
@@ -161,7 +156,7 @@
             // Dato
             // 
             Dato.AutoSize = true;
-            Dato.Location = new Point(141, 151);
+            Dato.Location = new Point(135, 251);
             Dato.Name = "Dato";
             Dato.Size = new Size(32, 15);
             Dato.TabIndex = 11;
@@ -170,7 +165,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(223, 151);
+            label4.Location = new Point(213, 251);
             label4.Name = "label4";
             label4.Size = new Size(66, 15);
             label4.TabIndex = 12;
@@ -180,7 +175,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(861, 346);
+            ClientSize = new Size(1034, 661);
+            Controls.Add(pictureBox1);
             Controls.Add(label4);
             Controls.Add(Dato);
             Controls.Add(Info);

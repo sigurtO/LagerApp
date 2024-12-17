@@ -32,7 +32,8 @@ namespace LagerApp_final_
         }
 
         public Raavare()
-        { }
+        {
+        }
     }
 
 }
