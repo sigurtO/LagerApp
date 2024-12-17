@@ -63,5 +63,51 @@ namespace LagerApp_final_
         {
 
         }
+
+        private void buttonUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Parse OrdreID to identify the order to update
+                if (!int.TryParse(textBox1.Text, out int ordreId))
+                {
+                    MessageBox.Show("Please provide a valid OrdreID.");
+                    return;
+                }
+
+                // Retrieve the existing order
+                Ordre existingOrdre = Program.Database.ReadOrdre(ordreId).FirstOrDefault();
+                if (existingOrdre == null)
+                {
+                    MessageBox.Show("Order not found.");
+                    return;
+                }
+
+                // Update only fields with new values
+                if (!string.IsNullOrWhiteSpace(textBoxInfo.Text))
+                    existingOrdre.Info = textBoxInfo.Text;
+
+                if (!string.IsNullOrWhiteSpace(textBoxDato.Text))
+                    existingOrdre.Dato = textBoxDato.Text;
+
+                if (!string.IsNullOrWhiteSpace(textBoxLev.Text))
+                    existingOrdre.Leverandoer = textBoxLev.Text;
+
+                // Save changes
+                Program.Database.UpdateOrdre(existingOrdre);
+
+                MessageBox.Show("Order was updated successfully.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+        }
+
+
+        private void OrdreMenu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
