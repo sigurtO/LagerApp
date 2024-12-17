@@ -28,14 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             buttonLagerStyring = new Button();
             Ordrehandle = new Button();
             buttonRaavarer = new Button();
             buttonBack = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // buttonLagerStyring
             // 
+            buttonLagerStyring.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             buttonLagerStyring.Location = new Point(432, 204);
             buttonLagerStyring.Margin = new Padding(4);
             buttonLagerStyring.Name = "buttonLagerStyring";
@@ -47,41 +51,58 @@
             // 
             // Ordrehandle
             // 
+            Ordrehandle.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            Ordrehandle.BackColor = Color.FromArgb(255, 161, 0);
             Ordrehandle.Location = new Point(432, 322);
             Ordrehandle.Margin = new Padding(4);
             Ordrehandle.Name = "Ordrehandle";
             Ordrehandle.Size = new Size(165, 36);
             Ordrehandle.TabIndex = 1;
             Ordrehandle.Text = "Ordrehåndtering";
-            Ordrehandle.UseVisualStyleBackColor = true;
+            Ordrehandle.UseVisualStyleBackColor = false;
             Ordrehandle.Click += Ordrehandle_Click;
             // 
             // buttonRaavarer
             // 
-            buttonRaavarer.Location = new Point(432, 260);
+            buttonRaavarer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            buttonRaavarer.BackColor = Color.LightGray;
+            buttonRaavarer.Location = new Point(432, 265);
             buttonRaavarer.Margin = new Padding(4);
             buttonRaavarer.Name = "buttonRaavarer";
             buttonRaavarer.Size = new Size(165, 36);
             buttonRaavarer.TabIndex = 2;
             buttonRaavarer.Text = "Råvarer";
-            buttonRaavarer.UseVisualStyleBackColor = true;
+            buttonRaavarer.UseVisualStyleBackColor = false;
             buttonRaavarer.Click += button1_Click;
             // 
             // buttonBack
             // 
-            buttonBack.Location = new Point(38, 503);
+            buttonBack.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            buttonBack.Location = new Point(39, 552);
             buttonBack.Name = "buttonBack";
-            buttonBack.Size = new Size(112, 34);
+            buttonBack.Size = new Size(160, 56);
             buttonBack.TabIndex = 3;
             buttonBack.Text = "Tilbage";
             buttonBack.UseVisualStyleBackColor = true;
             buttonBack.Click += buttonBack_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(916, 13);
+            pictureBox1.Margin = new Padding(2, 4, 2, 4);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(101, 104);
+            pictureBox1.TabIndex = 24;
+            pictureBox1.TabStop = false;
+            // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1000, 562);
+            ClientSize = new Size(1028, 644);
+            Controls.Add(pictureBox1);
             Controls.Add(buttonBack);
             Controls.Add(buttonRaavarer);
             Controls.Add(Ordrehandle);
@@ -89,6 +110,7 @@
             Margin = new Padding(4);
             Name = "MainMenu";
             Text = "MainMenu";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -98,5 +120,6 @@
         private Button Ordrehandle;
         private Button buttonRaavarer;
         private Button buttonBack;
+        private PictureBox pictureBox1;
     }
 }

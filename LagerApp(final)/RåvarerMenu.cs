@@ -134,7 +134,12 @@ namespace LagerApp_final_
 
         private void dataGridViewRaavare_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
