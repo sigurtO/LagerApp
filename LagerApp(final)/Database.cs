@@ -160,6 +160,26 @@ namespace LagerApp_final_
 
 
 
+        //Ordre Update
+        public void UpdateOrdre(Ordre ordre)
+        {
+            using var connection = new SqlConnection(_connectionString);
+            connection.Open();
+
+            using var command = new SqlCommand("UPDATE Ordre SET Info = @Info, Dato = @Dato, Levandor = @Leverandoer WHERE OrdreID = @OrdreID", connection);
+            command.Parameters.AddWithValue("@Info", ordre.Info);
+            command.Parameters.AddWithValue("@Dato", ordre.Dato);
+            command.Parameters.AddWithValue("@Leverandoer", ordre.Leverandoer);
+            command.Parameters.AddWithValue("@OrdreID", ordre.OrdreId);
+
+
+            command.ExecuteNonQuery();
+
+
+        }
+
+
+
 
         //read
         public MedarbejderLogin ReadWorker(string username, string password)
@@ -217,6 +237,7 @@ namespace LagerApp_final_
                 {
                     KundeID = reader.GetInt32(0),        // OrdreID
                     KundeNavn = reader.GetString(1),     // Kunde Name
+                    TlfNummer = reader.GetInt32(2),     // Kunde Name
                 };
 
                 ordreliste.Add(ordre);
@@ -234,7 +255,7 @@ namespace LagerApp_final_
             using var connection = new SqlConnection(_connectionString);
             connection.Open();
             using var command = new SqlCommand(
-            "Select Ordre.OrdreID, Kunde.KundeID, Kunde.Navn, Ordre.Info, Ordre.Dato, Ordre.Levandor " +
+            "Select Ordre.OrdreID, Kunde.KundeID, Kunde.Navn, Ordre.Info, Ordre.Dato, Ordre.Levandor, Kunde.TlfNummer " +
             "FROM Ordre " +
             "INNER JOIN Kunde ON  Ordre.KundeID = Kunde.KundeID WHERE Kunde.KundeID = @KundeID", connection);
 
@@ -251,7 +272,8 @@ namespace LagerApp_final_
                     KundeNavn = reader.GetString(2),     // Kunde Name
                     Info = reader.GetString(3),          // Info
                     Dato = reader.GetString(4),          // Dato (converted to string)
-                    Leverandoer = reader.GetString(5)    // Leverandør
+                    Leverandoer = reader.GetString(5),    // Leverandør
+                    TlfNummer = reader.GetInt32(6)    // Leverandør
                 };
 
                 ordreliste.Add(ordre);

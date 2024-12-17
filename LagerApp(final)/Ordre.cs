@@ -15,16 +15,18 @@ namespace LagerApp_final_
             public string Info { get; set; }
             public int KundeID { get; set; }
             public string KundeNavn { get; set; }
+        public int TlfNummer { get; set; }
 
-            // Konstruktor
-            public Ordre(int ordreId, string dato, string leverandoer, string info, int kundeID, string kundeNavn)
+        // Konstruktor
+        public Ordre(int ordreId, string dato, string leverandoer, string info, int kundeID, string kundeNavn, int tlfNummer)
             {
                 OrdreId = ordreId;
                 Dato = dato;
                 Leverandoer = leverandoer;
                 Info = info;
                 KundeID = kundeID;
-                KundeNavn = KundeNavn;
+                KundeNavn = kundeNavn;
+                TlfNummer = tlfNummer;
             }
 
             // Parameterløs konstruktor (hvis påkrævet)
